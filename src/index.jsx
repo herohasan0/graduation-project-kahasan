@@ -9,6 +9,10 @@ import theme from './styles/theme';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
+// fonts
+import '@fontsource/roboto';
+import '@fontsource/milonga';
+
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
