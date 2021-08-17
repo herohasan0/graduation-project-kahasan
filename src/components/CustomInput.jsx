@@ -4,26 +4,25 @@ import PropTypes from 'prop-types';
 
 import { Box, Input } from '@chakra-ui/react';
 
-export default function CustomInput({ field, form, ...props }) {
-  const { name } = field;
+export default function CustomInput({
+  label, register, required, ...props
+}) {
   return (
     <Box>
-      <label htmlFor={name}>
-        {name}
-        <Input borderColor="#000" borderRadius={8} mt="3" id={name} {...field} {...props} />
+      <label htmlFor={label}>
+        {label}
+        <Input {...register(label, { required })} borderColor="#000" borderRadius={8} mt="3" id={label} {...props} />
       </label>
     </Box>
   );
 }
 
+CustomInput.defaultProps = {
+  required: false,
+};
+
 CustomInput.propTypes = {
-  name: PropTypes.string.isRequired,
-  field: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ]).isRequired,
-  form: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ]).isRequired,
+  label: PropTypes.string.isRequired,
+  register: PropTypes.func.isRequired,
+  required: PropTypes.bool,
 };
