@@ -3,7 +3,7 @@ import './App.css';
 
 // ROUTER
 import { BrowserRouter } from 'react-router-dom';
-import RouterConfig from './navigation/RouterConfig';
+import RouterConfig from 'navigation/RouterConfig';
 
 function App() {
   return (

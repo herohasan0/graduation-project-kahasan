@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { ROOT } from './CONSTANTS';
-import Home from '../pages/Home';
-import NotFound from './NotFound';
+import Home from 'pages/Home';
+import { ROOT } from 'navigation/CONSTANTS';
+import NotFound from 'navigation/NotFound';
 
 const RouterConfig = () => (
   <Switch>
