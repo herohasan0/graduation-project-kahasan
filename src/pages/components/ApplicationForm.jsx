@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Flex, Button } from '@chakra-ui/react';
 
@@ -8,9 +8,12 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import db from 'services/firebase';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormSelect from './FormSelect';
+
+const formListRef = db.collection('form-list');
 
 const schema = yup.object().shape({
   firstName: yup.string().required(),
@@ -21,12 +24,28 @@ const schema = yup.object().shape({
 });
 
 export default function ApplicationForm() {
+  const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    await formListRef.add({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      yearOfBirth: data.year,
+      address: data.address,
+      planetOfBirth: data.planet,
+    }).then(() => {
+      setIsLoading(false);
+    }).catch((error) => {
+      alert(error);
+    }).finally(() => {
+      setIsLoading(false);
+    });
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Flex flexDir="column">
@@ -37,7 +56,7 @@ export default function ApplicationForm() {
         <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required />
 
         <Button
-          isLoading={false}
+          isLoading={isLoading}
           loadingText="Sending"
           variant="outline"
           colorScheme="teal"
