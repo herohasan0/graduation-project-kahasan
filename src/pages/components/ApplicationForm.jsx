@@ -8,12 +8,10 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import db from 'services/firebase';
+import Firestore from 'services/firestore';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormSelect from './FormSelect';
-
-const formListRef = db.collection('form-list');
 
 const schema = yup.object().shape({
   firstName: yup.string().required(),
@@ -31,14 +29,10 @@ export default function ApplicationForm() {
 
   const onSubmit = async (data) => {
     setIsLoading(true);
-    await formListRef.add({
-      firstName: data.firstName,
-      lastName: data.lastName,
-      yearOfBirth: data.year,
-      address: data.address,
-      planetOfBirth: data.planet,
-    }).then(() => {
+
+    Firestore(data).then((docs) => {
       setIsLoading(false);
+      console.log('docs', docs);
     }).catch((error) => {
       alert(error);
     }).finally(() => {
