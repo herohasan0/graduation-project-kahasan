@@ -2,7 +2,7 @@
 /* eslint-disable no-alert */
 import React from 'react';
 
-import { Flex } from '@chakra-ui/react';
+import { Flex, Button } from '@chakra-ui/react';
 
 import { useForm } from 'react-hook-form';
 
@@ -32,7 +32,15 @@ export default function ApplicationForm() {
         <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required />
         <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required />
         <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required />
-        <button type="submit">send</button>
+        <Button
+          isLoading={false}
+          loadingText="Sending"
+          variant="outline"
+          colorScheme="teal"
+          type="submit"
+        >
+          Send
+        </Button>
       </Flex>
     </form>
 
