@@ -2,18 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Input } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
+import Label from './Label';
 
 export default function CustomInput({
-  label, register, required, ...props
+  inputTitle, label, register, required, ...props
 }) {
   return (
-    <Box>
-      <label htmlFor={label}>
-        {label}
-        <Input {...register(label, { required })} borderColor="#000" borderRadius={8} mt="3" id={label} {...props} />
-      </label>
-    </Box>
+    <Label htmlFor={label} labelText={inputTitle}>
+      <Input {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} {...props} />
+    </Label>
   );
 }
 
@@ -23,6 +21,7 @@ CustomInput.defaultProps = {
 
 CustomInput.propTypes = {
   label: PropTypes.string.isRequired,
+  inputTitle: PropTypes.string.isRequired,
   register: PropTypes.func.isRequired,
   required: PropTypes.bool,
 };
