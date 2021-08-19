@@ -4,12 +4,19 @@ import FormPage from 'pages/FormPage';
 import { ROOT } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout';
+import Title from 'components/Title';
+import HelperText from 'components/HelperText';
+import { FORMTITLE, HELPERTEXT, COVERURL } from 'CONSTANS';
 
 const RouterConfig = () => (
   <Switch>
     {/* List all public routes here */}
     <Route exact path={ROOT}>
-      <Layout imgUrl=" ">
+      <Layout
+        helperText={<HelperText text={HELPERTEXT} />}
+        title={<Title title={FORMTITLE} />}
+        imgUrl={COVERURL}
+      >
         <FormPage />
       </Layout>
     </Route>
