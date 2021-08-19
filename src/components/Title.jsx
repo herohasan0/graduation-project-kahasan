@@ -4,7 +4,7 @@ import { Heading } from '@chakra-ui/react';
 
 export default function Title({ title }) {
   return (
-    <Heading as="h2" fontSize="2xl">{title}</Heading>
+    <Heading fontFamily="body" fontWeight="bold" as="h3" fontSize="2xl">{title}</Heading>
   );
 }
 
