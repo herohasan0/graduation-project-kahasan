@@ -2,7 +2,7 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 
-import { Flex, Button } from '@chakra-ui/react';
+import { Flex, Button, Box } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -50,25 +50,27 @@ export default function ApplicationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Flex flexDir="column">
-        <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required />
-        <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required />
-        <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required />
-        <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required />
-        <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required />
+    <Box w="full">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Flex flexDir="column">
+          <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required />
+          <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required />
+          <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required />
+          <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required />
+          <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required />
 
-        <Button
-          isLoading={isLoading}
-          loadingText="Sending"
-          variant="outline"
-          colorScheme="teal"
-          type="submit"
-        >
-          Send
-        </Button>
-      </Flex>
-    </form>
+          <Button
+            isLoading={isLoading}
+            loadingText="Sending"
+            variant="outline"
+            colorScheme="teal"
+            type="submit"
+          >
+            Send
+          </Button>
+        </Flex>
+      </form>
+    </Box>
 
   );
 }

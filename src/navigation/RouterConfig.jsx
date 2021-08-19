@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from 'pages/Home';
+import FormPage from 'pages/FormPage';
 import { ROOT } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout';
@@ -10,7 +10,7 @@ const RouterConfig = () => (
     {/* List all public routes here */}
     <Route exact path={ROOT}>
       <Layout imgUrl=" ">
-        <Home />
+        <FormPage />
       </Layout>
     </Route>
 
