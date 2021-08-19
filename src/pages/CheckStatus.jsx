@@ -41,7 +41,7 @@ export default function Home() {
       if (result) {
         setIsLoading(false);
         history.push({
-          pathname: '/hasan',
+          pathname: `/basvuru/${data.formId}`,
           state: { result, dataid: data.formId },
         });
       } else {

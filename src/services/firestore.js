@@ -10,9 +10,9 @@ export const addData = async (data) => {
     .add({
       firstName: data.firstName,
       lastName: data.lastName,
-      yearOfBirth: data.year,
+      yearOfBirth: data.yearOfBirth,
       address: data.address,
-      planetOfBirth: data.planet,
+      planetOfBirth: data.planetOfBirth,
     })
     .then((docs) => {
       id = docs.id;

@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import FormPage from 'pages/FormPage';
 import SuccessPage from 'pages/SuccessPage';
 import {
-  ROOT, FORM, SUCCESS, CHECK,
+  ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC,
 } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout';
@@ -14,6 +14,7 @@ import {
 } from 'CONSTANS';
 import Home from 'pages/Home';
 import CheckStatus from 'pages/CheckStatus';
+import CheckStatusResult from 'pages/CheckStatusResult';
 
 const RouterConfig = () => (
   <Switch>
@@ -49,6 +50,15 @@ const RouterConfig = () => (
         helperText={<HelperText text={CHECKDESCRIPTION} />}
       >
         <CheckStatus />
+      </Layout>
+    </Route>
+
+    <Route exact path={CHECK_SPECIFIC}>
+      <Layout
+        imgUrl={COVERURL}
+        title={<Title title={CHECKTITLE} />}
+      >
+        <CheckStatusResult />
       </Layout>
     </Route>
 

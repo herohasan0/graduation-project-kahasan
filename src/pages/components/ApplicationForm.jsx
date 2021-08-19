@@ -21,9 +21,9 @@ import FormSelect from './FormSelect';
 const schema = yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.string().required(),
-  year: yup.number().min(1920).max(2003).required(),
+  yearOfBirth: yup.number().min(1920).max(2003).required(),
   address: yup.string().required(),
-  planet: yup.string().required(),
+  planetOfBirth: yup.string().required(),
 });
 
 export default function ApplicationForm({ formValue, disabled }) {
@@ -57,9 +57,9 @@ export default function ApplicationForm({ formValue, disabled }) {
         <Flex flexDir="column">
           <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.firstName} />
           <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.lastName} />
-          <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.year} />
+          <FormInput label="yearOfBirth" inputTitle="Year of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.yearOfBirth} />
           <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.address} />
-          <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.planet} />
+          <FormSelect label="planetOfBirth" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.planetOfBirth} />
 
           {!disabled
             && (
