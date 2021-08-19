@@ -32,10 +32,6 @@ export default function ApplicationForm({ formValue, disabled }) {
     resolver: yupResolver(schema),
   });
 
-  const {
-    firstName, lastName, year, planet, address,
-  } = formValue;
-
   const history = useHistory();
 
   const onSubmit = async (data) => {
@@ -59,11 +55,11 @@ export default function ApplicationForm({ formValue, disabled }) {
     <Box w="full">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDir="column">
-          <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required disabled={disabled} value={formValue && firstName} />
-          <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required disabled={disabled} value={formValue && lastName} />
-          <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && year} />
-          <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required disabled={disabled} value={formValue && address} />
-          <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && planet} />
+          <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.firstName} />
+          <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.lastName} />
+          <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.year} />
+          <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.address} />
+          <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.planet} />
 
           {!disabled
             && (

@@ -4,7 +4,9 @@ import ApplicationForm from 'pages/components/ApplicationForm';
 import {
   Alert, AlertIcon, AlertTitle, AlertDescription,
 } from '@chakra-ui/react';
-import { ALERTTITLE, ALERTDESCRIPTION, ALERTIDMESSAGE } from 'CONSTANS';
+import {
+  ALERTTITLE, ALERTDESCRIPTION, ALERTIDMESSAGE, NOTICEMESSAGE,
+} from 'CONSTANS';
 
 import { useLocation } from 'react-router-dom';
 
@@ -20,7 +22,7 @@ export default function Home() {
         alignItems="center"
         justifyContent="center"
         textAlign="center"
-        height="200px"
+        height="300px"
       >
         <AlertIcon boxSize="40px" mr={0} />
         <AlertTitle mt={4} mb={1} fontSize="lg">
@@ -33,6 +35,9 @@ export default function Home() {
           {ALERTIDMESSAGE}
           {state.dataid}
         </AlertTitle>
+        <AlertDescription maxWidth="sm" mt={2.5}>
+          {NOTICEMESSAGE}
+        </AlertDescription>
       </Alert>
 
       <ApplicationForm formValue={state.data} disabled />
