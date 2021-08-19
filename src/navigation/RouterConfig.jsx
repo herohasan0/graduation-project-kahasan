@@ -2,13 +2,18 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FormPage from 'pages/FormPage';
 import SuccessPage from 'pages/SuccessPage';
-import { ROOT, FORM, SUCCESS } from 'navigation/CONSTANTS';
+import {
+  ROOT, FORM, SUCCESS, CHECK,
+} from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout';
 import Title from 'components/Title';
 import HelperText from 'components/HelperText';
-import { FORMTITLE, HELPERTEXT, COVERURL } from 'CONSTANS';
+import {
+  FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
+} from 'CONSTANS';
 import Home from 'pages/Home';
+import CheckStatus from 'pages/CheckStatus';
 
 const RouterConfig = () => (
   <Switch>
@@ -34,6 +39,16 @@ const RouterConfig = () => (
     <Route exact path={SUCCESS}>
       <Layout imgUrl={COVERURL}>
         <SuccessPage />
+      </Layout>
+    </Route>
+
+    <Route exact path={CHECK}>
+      <Layout
+        imgUrl={COVERURL}
+        title={<Title title={CHECKTITLE} />}
+        helperText={<HelperText text={CHECKDESCRIPTION} />}
+      >
+        <CheckStatus />
       </Layout>
     </Route>
 

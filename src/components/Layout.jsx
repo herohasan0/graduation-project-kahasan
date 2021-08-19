@@ -19,15 +19,13 @@ export default function Layout({
             <Image src="./assets/images/logo.png" w="3xs" />
           </Link>
 
-          {title
-          && (
+          {title && (
           <Box mt={10}>
             {title}
           </Box>
           )}
 
-          {helperText
-          && (
+          {helperText && (
           <Box mt={10}>
             {helperText}
           </Box>
