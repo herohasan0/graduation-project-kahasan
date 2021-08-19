@@ -12,7 +12,7 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import Firestore from 'services/firestore';
+import { addData } from 'services/firestore';
 import { SUCCESS } from 'navigation/CONSTANTS';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
@@ -37,7 +37,7 @@ export default function ApplicationForm({ formValue, disabled }) {
   const onSubmit = async (data) => {
     setIsLoading(true);
 
-    Firestore(data).then((docs) => {
+    addData(data).then((docs) => {
       console.log('docs', docs);
       setIsLoading(false);
       history.push({
