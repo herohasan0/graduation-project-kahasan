@@ -14,7 +14,7 @@ export default function FormSelect({
 }) {
   return (
     <>
-      <FormControl isInvalid={errors[`${label}`]}>
+      <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
         <Select {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder="Select planet">
           <option>Magrathea</option>

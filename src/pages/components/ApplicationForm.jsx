@@ -60,6 +60,7 @@ export default function ApplicationForm() {
           <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required />
 
           <Button
+            mt={24}
             isLoading={isLoading}
             loadingText="Sending"
             variant="outline"
