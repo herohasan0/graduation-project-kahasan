@@ -2,8 +2,6 @@
 import { useState } from 'react';
 import db from './firebase';
 
-firestore;
-
 const formListRef = db.collection('form-list');
 
 export const addData = async (data) => {
