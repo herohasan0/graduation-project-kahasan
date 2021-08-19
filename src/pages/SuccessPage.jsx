@@ -6,7 +6,11 @@ import {
 } from '@chakra-ui/react';
 import { ALERTTITLE, ALERTDESCRIPTION, ALERTIDMESSAGE } from 'CONSTANS';
 
+import { useLocation } from 'react-router-dom';
+
 export default function Home() {
+  const { state } = useLocation();
+  console.log('location', state);
   return (
     <>
       <Alert
@@ -27,10 +31,11 @@ export default function Home() {
         </AlertDescription>
         <AlertTitle maxWidth="sm" mt={2.5} fontWeight="bold">
           {ALERTIDMESSAGE}
+          {state.dataid}
         </AlertTitle>
       </Alert>
 
-      <ApplicationForm />
+      <ApplicationForm formValue={state.data} disabled />
     </>
   );
 }

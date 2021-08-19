@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
@@ -24,11 +26,15 @@ const schema = yup.object().shape({
   planet: yup.string().required(),
 });
 
-export default function ApplicationForm() {
+export default function ApplicationForm({ formValue, disabled }) {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const {
+    firstName, lastName, year, planet, address,
+  } = formValue;
 
   const history = useHistory();
 
@@ -53,22 +59,26 @@ export default function ApplicationForm() {
     <Box w="full">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDir="column">
-          <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required />
-          <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required />
-          <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required />
-          <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required />
-          <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required />
+          <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required disabled={disabled} value={formValue && firstName} />
+          <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required disabled={disabled} value={formValue && lastName} />
+          <FormInput label="year" inputTitle="Year of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && year} />
+          <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required disabled={disabled} value={formValue && address} />
+          <FormSelect label="planet" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && planet} />
 
-          <Button
-            mt={24}
-            isLoading={isLoading}
-            loadingText="Sending"
-            variant="outline"
-            colorScheme="teal"
-            type="submit"
-          >
-            Send
-          </Button>
+          {!disabled
+            && (
+            <Button
+              mt={24}
+              isLoading={isLoading}
+              loadingText="Sending"
+              variant="outline"
+              colorScheme="teal"
+              type="submit"
+            >
+              Send
+            </Button>
+            )}
+
         </Flex>
       </form>
     </Box>

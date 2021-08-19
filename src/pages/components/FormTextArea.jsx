@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -10,13 +11,13 @@ import {
 } from '@chakra-ui/react';
 
 export default function FormTextArea({
-  inputTitle, label, register, required, errors,
+  inputTitle, label, register, required, errors, disabled, value,
 }) {
   return (
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Textarea {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} />
+        <Textarea {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} />
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>
     </>
