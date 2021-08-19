@@ -15,6 +15,7 @@ const theme = extendTheme({
     min: 'min-content',
     full: '100%',
     fullH: '100vh',
+    half: '50%',
     '3xs': '14rem',
     '2xs': '16rem',
     xs: '20rem',
