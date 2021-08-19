@@ -4,11 +4,14 @@ import React, { useState } from 'react';
 
 import { Flex, Button } from '@chakra-ui/react';
 
+import { useHistory } from 'react-router-dom';
+
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Firestore from 'services/firestore';
+import { SUCCESS } from 'navigation/CONSTANTS';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormSelect from './FormSelect';
@@ -27,12 +30,18 @@ export default function ApplicationForm() {
     resolver: yupResolver(schema),
   });
 
+  const history = useHistory();
+
   const onSubmit = async (data) => {
     setIsLoading(true);
 
     Firestore(data).then((docs) => {
-      setIsLoading(false);
       console.log('docs', docs);
+      setIsLoading(false);
+      history.push({
+        pathname: SUCCESS,
+        state: { data, dataid: docs },
+      });
     }).catch((error) => {
       alert(error);
     }).finally(() => {
