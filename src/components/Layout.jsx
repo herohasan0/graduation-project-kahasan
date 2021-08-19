@@ -21,7 +21,7 @@ export default function Layout({
             {helperText}
           </Box>
         </Flex>
-        <Flex>{children}</Flex>
+        <Flex flexDir="column">{children}</Flex>
       </Flex>
       <Flex w="half">
         <Cover imgUrl={imgUrl} />

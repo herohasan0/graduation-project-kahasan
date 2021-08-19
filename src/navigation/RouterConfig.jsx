@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FormPage from 'pages/FormPage';
-import { ROOT } from 'navigation/CONSTANTS';
+import SuccessPage from 'pages/SuccessPage';
+import { ROOT, SUCCESS } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout';
 import Title from 'components/Title';
@@ -18,6 +19,12 @@ const RouterConfig = () => (
         imgUrl={COVERURL}
       >
         <FormPage />
+      </Layout>
+    </Route>
+
+    <Route exact path={SUCCESS}>
+      <Layout imgUrl={COVERURL}>
+        <SuccessPage />
       </Layout>
     </Route>
 
