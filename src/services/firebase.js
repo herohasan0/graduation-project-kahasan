@@ -18,6 +18,4 @@ if (!firebase.apps.length) {
 }
 firebase.analytics();
 
-const db = firebase.firestore();
-
-export default db;
+export default firebase;

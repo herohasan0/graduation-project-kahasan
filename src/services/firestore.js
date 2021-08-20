@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
-import db from './firebase';
+import firebase from './firebase';
+
+const db = firebase.firestore();
 
 const formListRef = db.collection('form-list');
 
