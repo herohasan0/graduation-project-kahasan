@@ -41,3 +41,22 @@ export const getData = async (formId) => {
     });
   return formData;
 };
+
+export const getUser = async (email, password) => {
+  let userInfo;
+
+  await firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const { user } = userCredential;
+      console.log('user', user);
+      userInfo = user;
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.log('errorMessage', errorMessage);
+    });
+
+  return userInfo;
+};
