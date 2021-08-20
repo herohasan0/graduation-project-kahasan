@@ -15,7 +15,7 @@ import {
 import Home from 'pages/Home';
 import CheckStatus from 'pages/CheckStatus';
 import CheckStatusResult from 'pages/CheckStatusResult';
-import Admin from '../pages/Auth/Admin';
+import Admin from './Auth/Admin';
 
 const RouterConfig = () => (
   <Switch>

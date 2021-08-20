@@ -11,13 +11,13 @@ import {
 } from '@chakra-ui/react';
 
 export default function FormInput({
-  inputTitle, label, register, required, errors, disabled, value,
+  inputTitle, label, register, required, errors, disabled, value, ...props
 }) {
   return (
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Input {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} />
+        <Input {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} {...props} />
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>
     </>
