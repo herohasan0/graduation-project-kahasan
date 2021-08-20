@@ -15,6 +15,7 @@ import {
 import Home from 'pages/Home';
 import CheckStatus from 'pages/CheckStatus';
 import CheckStatusResult from 'pages/CheckStatusResult';
+import Admin from '../pages/Auth/Admin';
 
 const RouterConfig = () => (
   <Switch>
@@ -60,6 +61,10 @@ const RouterConfig = () => (
       >
         <CheckStatusResult />
       </Layout>
+    </Route>
+
+    <Route path="/admin">
+      <Admin />
     </Route>
 
     {/* List a generic 404-Not Found route here */}
