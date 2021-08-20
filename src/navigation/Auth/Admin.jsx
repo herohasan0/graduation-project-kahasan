@@ -1,11 +1,13 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   Button, Box, Center, Image, Heading, Stack,
 } from '@chakra-ui/react';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 
@@ -14,6 +16,8 @@ import FormInput from 'pages/components/FormInput';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import { getUser } from 'services/firestore';
+
 const schema = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
@@ -21,13 +25,41 @@ const schema = yup.object().shape({
 
 export default function Admin() {
   const [isLoading, setIsLoading] = useState(false);
+
+  const [Error, setError] = useState({});
+
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
 
+  useEffect(() => {
+    setError(errors);
+  }, [errors]);
+
+  const history = useHistory();
+
   const onSubmit = async (data) => {
     setIsLoading(true);
-    console.log('data', data);
+
+    getUser(data.email, data.password).then((user) => {
+      if (user) {
+        setIsLoading(false);
+        history.push({
+          pathname: '/basvuru/hasan',
+          state: { userId: user.uid },
+        });
+      } else {
+        setError({
+          email: {
+            message: 'The password is invalid or the user does not have a password.',
+          },
+        });
+      }
+    }).catch((error) => {
+      alert(error);
+    }).finally(() => {
+      setIsLoading(false);
+    });
   };
 
   const Card = (props) => (
@@ -71,7 +103,7 @@ export default function Admin() {
               label="email"
               inputTitle="Email"
               register={register}
-              errors={errors}
+              errors={Error}
               required
             />
             <FormInput
