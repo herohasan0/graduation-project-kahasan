@@ -13,6 +13,7 @@ export const addData = async (data) => {
       yearOfBirth: data.yearOfBirth,
       address: data.address,
       planetOfBirth: data.planetOfBirth,
+      status: 'pending',
     })
     .then((docs) => {
       id = docs.id;

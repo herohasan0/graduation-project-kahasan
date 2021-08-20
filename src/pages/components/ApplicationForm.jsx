@@ -4,7 +4,9 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 
-import { Flex, Button, Box } from '@chakra-ui/react';
+import {
+  Flex, Button, Box, Badge,
+} from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -14,6 +16,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { addData } from 'services/firestore';
 import { SUCCESS } from 'navigation/CONSTANTS';
+import HelperText from 'components/HelperText';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormSelect from './FormSelect';
@@ -54,6 +57,14 @@ export default function ApplicationForm({ formValue, disabled }) {
   return (
     <Box w="full">
       <form onSubmit={handleSubmit(onSubmit)}>
+        {formValue.status && (
+          <>
+            Your application status:
+            <Badge colorScheme="green">
+              {formValue.status}
+            </Badge>
+          </>
+        )}
         <Flex flexDir="column">
           <FormInput label="firstName" inputTitle="First Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.firstName} />
           <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.lastName} />
