@@ -3,6 +3,7 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import firebase from 'services/firebase';
+import { ADMIN } from 'navigation/CONSTANTS';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -18,7 +19,7 @@ function PrivateRoute({ children, ...rest }) {
         </>
       ) : (
         <Redirect
-          to="/admin"
+          to={ADMIN}
         />
       )
       )}

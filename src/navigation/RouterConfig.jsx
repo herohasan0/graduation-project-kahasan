@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import FormPage from 'pages/FormPage';
 import SuccessPage from 'pages/SuccessPage';
 import {
-  ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC,
+  ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC, ADMIN,
 } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout';
@@ -63,7 +63,7 @@ const RouterConfig = () => (
       </Layout>
     </Route>
 
-    <Route path="/admin">
+    <Route path={ADMIN}>
       <Admin />
     </Route>
 

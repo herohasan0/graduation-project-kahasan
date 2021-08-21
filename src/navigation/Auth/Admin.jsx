@@ -18,6 +18,8 @@ import * as yup from 'yup';
 
 import { getUser } from 'services/firestore';
 
+import { LIST } from 'navigation/CONSTANTS';
+
 const schema = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
@@ -45,7 +47,7 @@ export default function Admin() {
       if (user) {
         setIsLoading(false);
         history.push({
-          pathname: '/basvuru/hasan',
+          pathname: { LIST },
           state: { userId: user.uid },
         });
       } else {
