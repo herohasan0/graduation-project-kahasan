@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import FormPage from 'pages/FormPage';
 import SuccessPage from 'pages/SuccessPage';
 import {
-  ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC, ADMIN,
+  ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC, ADMIN, LIST,
 } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout';
@@ -16,6 +16,7 @@ import Home from 'pages/Home';
 import CheckStatus from 'pages/CheckStatus';
 import CheckStatusResult from 'pages/CheckStatusResult';
 import Admin from './Auth/Admin';
+import PrivateRoute from './Auth/PrivateRoute';
 
 const RouterConfig = () => (
   <Switch>
@@ -66,6 +67,10 @@ const RouterConfig = () => (
     <Route path={ADMIN}>
       <Admin />
     </Route>
+
+    <PrivateRoute exact path={LIST}>
+      <div>Private Route</div>
+    </PrivateRoute>
 
     {/* List a generic 404-Not Found route here */}
     <Route path="*">
