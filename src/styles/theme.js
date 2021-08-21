@@ -5,6 +5,9 @@ const theme = extendTheme({
     transparent: 'transparent',
     black: '#000',
     white: '#fff',
+    hover: {
+      black: '#242424',
+    },
   },
   fonts: {
     body: 'Roboto, sans-serif',
@@ -30,6 +33,7 @@ const theme = extendTheme({
     '6xl': '72rem',
     '7xl': '80rem',
     '8xl': '90rem',
+    'nav-title': '3.43rem',
   },
   fontSizes: {
     xs: '0.75rem',
@@ -95,11 +99,13 @@ const theme = extendTheme({
     5: '1.125rem',
     6: '1.5rem',
     7: '1.625rem',
+    7.5: '1.75rem',
     8: '2rem',
     9: '2.25rem',
     10: '2.5rem',
     12: '3rem',
     14: '3.5rem',
+    15: '3.75rem',
     16: '4rem',
     20: '5rem',
     24: '6rem',
