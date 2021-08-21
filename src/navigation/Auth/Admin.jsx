@@ -47,7 +47,7 @@ export default function Admin() {
       if (user) {
         setIsLoading(false);
         history.push({
-          pathname: { LIST },
+          pathname: LIST,
           state: { userId: user.uid },
         });
       } else {

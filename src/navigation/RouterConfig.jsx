@@ -64,7 +64,7 @@ const RouterConfig = () => (
       </Layout>
     </Route>
 
-    <Route path={ADMIN}>
+    <Route exact path={ADMIN}>
       <Admin />
     </Route>
 
