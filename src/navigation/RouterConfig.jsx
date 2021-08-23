@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FormPage from 'pages/FormPage';
@@ -6,7 +7,7 @@ import {
   ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC, ADMIN, LIST,
 } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
-import Layout from 'components/Layout';
+import Layout from 'components/Layout/Layout';
 import Title from 'components/Title';
 import HelperText from 'components/HelperText';
 import {
@@ -15,7 +16,7 @@ import {
 import Home from 'pages/Home';
 import CheckStatus from 'pages/CheckStatus';
 import CheckStatusResult from 'pages/CheckStatusResult';
-import AdminLayout from 'components/AdminLayout';
+import AdminLayout from 'components/Layout/AdminLayout';
 import Admin from './Auth/Admin';
 import PrivateRoute from './Auth/PrivateRoute';
 
