@@ -6,6 +6,8 @@ import {
 
 import PropTypes from 'prop-types';
 
+import StatusBar from './StatusBar';
+
 export default function ListItem({
   avatarSrc, applyBy, subject, from, status, createdDate,
 }) {
@@ -19,11 +21,7 @@ export default function ListItem({
         <Text>{subject}</Text>
         <Text>{from}</Text>
 
-        <Center backgroundColor="orange.background" px="4" py="1.5" borderRadius="4xl">
-          <Text color="orange.color">
-            {status}
-          </Text>
-        </Center>
+        <StatusBar status={status} />
 
         <Text>{createdDate}</Text>
         <Center><Image src="/assets/icons/action.png" w="imageMd" h="imageMd" /></Center>
