@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable global-require */
+/* eslint-disable react/prop-types */
+import React from 'react';
 
 import {
   chakra, Flex, Image, Text, Box,
@@ -6,13 +8,11 @@ import {
 
 import PropTypes from 'prop-types';
 
-import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
+import { sidebarMinWidth } from 'CONSTANS';
 
-export default function Sidebar({ children, navTitle }) {
-  const [width, setWidth] = useState(sidebarMaxWidth);
-
-  const handleWidth = () => setWidth(width === sidebarMaxWidth ? sidebarMinWidth : sidebarMaxWidth);
-
+export default function Sidebar({
+  children, navTitle, handleWidth, width,
+}) {
   return (
     <Flex transition="0.5s" flexDir="column" w={`${width}px`} backgroundColor="black" color="white" h="fullH">
       <Flex justifyContent="space-between" pt={7.5} px={7.5}>
@@ -20,7 +20,7 @@ export default function Sidebar({ children, navTitle }) {
           <Text fontSize="lg">{navTitle}</Text>
         )}
         <Box cursor="pointer" w="1.5rem" h="1.5rem" onClick={handleWidth}>
-          <Image w="1.5rem" maxW="initial" src="assets/icons/hamburger.png" />
+          <Image w="1.5rem" maxW="initial" src="/assets/icons/hamburger.png" />
         </Box>
       </Flex>
       <chakra.nav mt={15}>

@@ -8,11 +8,11 @@ import { sidebarMinWidth } from 'CONSTANS';
 
 import PropTypes from 'prop-types';
 
-export default function SideBarItem({ width, route }) {
+export default function SideBarItem({ width, route, imgSrc }) {
   return (
     <Link to={route}>
       <Flex alignItems="center" h="48px" _hover={{ backgroundColor: 'hover.black' }} py={3} pl="31px">
-        <Image w="21px" h="21px" src="assets/icons/file.png" />
+        <Image w="21px" h="21px" src={imgSrc} />
         {width > sidebarMinWidth && (
         <Text transition="0.5s" ml="5px">Forms</Text>
         )}
@@ -24,4 +24,5 @@ export default function SideBarItem({ width, route }) {
 SideBarItem.propTypes = {
   width: PropTypes.number.isRequired,
   route: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
 };

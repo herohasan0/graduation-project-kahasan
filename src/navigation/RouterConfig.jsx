@@ -15,6 +15,7 @@ import {
 import Home from 'pages/Home';
 import CheckStatus from 'pages/CheckStatus';
 import CheckStatusResult from 'pages/CheckStatusResult';
+import AdminLayout from 'components/AdminLayout';
 import Admin from './Auth/Admin';
 import PrivateRoute from './Auth/PrivateRoute';
 
@@ -69,7 +70,7 @@ const RouterConfig = () => (
     </Route>
 
     <PrivateRoute exact path={LIST}>
-      <div>Private Route</div>
+      <AdminLayout />
     </PrivateRoute>
 
     {/* List a generic 404-Not Found route here */}

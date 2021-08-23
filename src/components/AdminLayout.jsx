@@ -13,7 +13,7 @@ export default function AdminLayout() {
   return (
     <Flex>
       <Sidebar navTitle="Admin." handleWidth={handleWidth} width={width}>
-        <SideBarItem width={width} route="/forms" />
+        <SideBarItem width={width} route="/forms" imgSrc="/assets/icons/file.png" />
       </Sidebar>
     </Flex>
   );
