@@ -66,8 +66,7 @@ export const getUser = async (email, password) => {
 };
 
 export const getForms = () => {
-  const formsRef = db.collection('form-list');
-  const [forms] = useCollectionData(formsRef, { idField: 'id' });
+  const [forms] = useCollectionData(formListRef, { idField: 'id' });
   return forms;
 };
 
@@ -77,3 +76,9 @@ export const updateForm = async (formId, data) => {
     adminNoted: data.response,
   });
 };
+
+export const getTotalApplicationCount = () => {
+  const [forms] = useCollectionData(formListRef);
+  return forms && forms.length;
+};
+
