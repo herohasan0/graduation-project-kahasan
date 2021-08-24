@@ -70,7 +70,15 @@ export default function ApplicationForm({ formValue, disabled }) {
           <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.lastName} />
           <FormInput label="yearOfBirth" inputTitle="Year of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.yearOfBirth} />
           <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.address} />
-          <FormSelect label="planetOfBirth" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.planetOfBirth} />
+          <FormSelect label="planetOfBirth" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.planetOfBirth} placeholder="Select a planet">
+            <option>Magrathea</option>
+            <option>Earth</option>
+            <option>NowWhat</option>
+            <option>Bethselamin</option>
+            <option>Damogran</option>
+            <option>Betelgeuse 5</option>
+            <option>Viltvodle 6</option>
+          </FormSelect>
 
           {!disabled
             && (
