@@ -37,7 +37,7 @@ export default function ListItem({ form }) {
             <MenuItem onClick={() => {
               history.push({
                 pathname: `/admin/basvuru-listesi/${id}`,
-                state: { result: form },
+                state: { result: form, formId: id },
               });
             }}
             >
