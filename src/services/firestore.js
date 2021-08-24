@@ -70,3 +70,10 @@ export const getForms = () => {
   const [forms] = useCollectionData(formsRef, { idField: 'id' });
   return forms;
 };
+
+export const updateForm = async (formId, data) => {
+  await formListRef.doc(formId).update({
+    status: data.status,
+    adminNoted: data.response,
+  });
+};
