@@ -11,20 +11,14 @@ import {
 } from '@chakra-ui/react';
 
 export default function FormSelect({
-  inputTitle, label, register, required, errors, disabled, value,
+  inputTitle, label, register, required, errors, disabled, value, children, placeholder,
 }) {
   return (
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Select {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder="Select planet" disabled={disabled} value={value}>
-          <option>Magrathea</option>
-          <option>Earth</option>
-          <option>NowWhat</option>
-          <option>Bethselamin</option>
-          <option>Damogran</option>
-          <option>Betelgeuse 5</option>
-          <option>Viltvodle 6</option>
+        <Select {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder={placeholder} disabled={disabled} value={value}>
+          {children}
         </Select>
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>
@@ -37,6 +31,7 @@ FormSelect.defaultProps = {
   label: '',
   inputTitle: '',
   errors: {},
+  placeholder: '',
 };
 
 FormSelect.propTypes = {
@@ -45,4 +40,5 @@ FormSelect.propTypes = {
   register: PropTypes.func.isRequired,
   required: PropTypes.bool,
   errors: PropTypes.shape({}),
+  placeholder: PropTypes.string,
 };
