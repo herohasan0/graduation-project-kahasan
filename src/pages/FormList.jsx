@@ -1,7 +1,6 @@
 import React from 'react';
 import ListItem from 'components/Layout/components/ListItem';
 import { getForms } from 'services/firestore';
-import ConvertDate from 'helper/ConvertDate';
 import { Flex } from '@chakra-ui/react';
 
 export default function FormList() {
@@ -11,17 +10,10 @@ export default function FormList() {
     <>
       <Flex flexDir="column" h="24.375rem" overflowY="scroll" mb="2.5">
         {
-        forms && forms.map(({
-          id, firstName, subject, planetOfBirth, status, createdDate,
-        }) => (
+        forms && forms.map((form) => (
           <ListItem
-            key={id}
-            id={id}
-            applyBy={firstName}
-            subject={subject}
-            from={planetOfBirth}
-            status={status}
-            createdDate={ConvertDate(createdDate.seconds)}
+            key={form.id}
+            form={form}
           />
         ))
       }
