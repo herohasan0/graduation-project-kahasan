@@ -1,11 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Cover from 'components/Cover';
 
 import { Link } from 'react-router-dom';
 
+import Cover from 'components/Cover';
 import { Flex, Image, Box } from '@chakra-ui/react';
 
 export default function Layout({
@@ -41,6 +39,18 @@ export default function Layout({
   );
 }
 
+Layout.defaultProps = {
+  helperText: '',
+  title: '',
+};
+
 Layout.propTypes = {
   imgUrl: PropTypes.string.isRequired,
+  helperText: PropTypes.oneOfType([
+    PropTypes.string, PropTypes.node,
+  ]),
+  title: PropTypes.oneOfType([
+    PropTypes.string, PropTypes.node,
+  ]),
+  children: PropTypes.node.isRequired,
 };
