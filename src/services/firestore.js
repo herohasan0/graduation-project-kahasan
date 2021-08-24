@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -82,3 +83,9 @@ export const getTotalApplicationCount = () => {
   return forms && forms.length;
 };
 
+export const getApplicationCount = (status) => {
+  const [forms] = useCollectionData(formListRef);
+  const applicationCount =
+    forms && forms.filter((form) => form.status === status);
+  return applicationCount && applicationCount.length;
+};
