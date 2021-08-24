@@ -59,7 +59,7 @@ export default function ApplicationForm({ formValue, disabled }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         {formValue && formValue.status && formValue.status && (
           <>
-            Your application status:
+            Application status:
             <Badge colorScheme="green">
               {formValue.status}
             </Badge>
