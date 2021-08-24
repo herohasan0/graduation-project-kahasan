@@ -18,7 +18,7 @@ export default function FormTextArea({
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Textarea {...register(label, { required })} placeholder={placeholder} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} />
+        <Textarea {...register(label, { required })} placeholder={placeholder} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} maxH="150px" />
         <FormHelperText>{helperText}</FormHelperText>
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>

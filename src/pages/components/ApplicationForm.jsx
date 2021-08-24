@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
@@ -16,19 +15,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { addData } from 'services/firestore';
 import { SUCCESS } from 'navigation/CONSTANTS';
-import HelperText from 'components/HelperText';
+import { PLANETSELECTHELPERTEXT, REASONTOAPPLYHELPERTEXT } from 'CONSTANS';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormSelect from './FormSelect';
 
 const schema = yup.object().shape({
-  firstName: yup.string().required(),
-  lastName: yup.string().required(),
-  yearOfBirth: yup.number().min(1920).max(2003).required(),
+  firstName: yup.string().max(50).required(),
+  lastName: yup.string().max(50).required(),
+  yearOfBirth: yup.number().required(),
   idNumber: yup.number().required(),
   planetOfBirth: yup.string().required(),
-  address: yup.string().required(),
-  reasonOfApply: yup.string().required(),
+  address: yup.string().max(250).required(),
+  reasonOfApply: yup.string().max(350).required(),
 });
 
 export default function ApplicationForm({ formValue, disabled }) {
@@ -37,15 +36,12 @@ export default function ApplicationForm({ formValue, disabled }) {
     resolver: yupResolver(schema),
   });
 
-  console.log('formValue****', formValue);
-
   const history = useHistory();
 
   const onSubmit = async (data) => {
     setIsLoading(true);
 
     addData(data).then((docs) => {
-      console.log('docs', docs);
       setIsLoading(false);
       history.push({
         pathname: SUCCESS,
@@ -114,7 +110,7 @@ export default function ApplicationForm({ formValue, disabled }) {
           <FormInput label="lastName" inputTitle="Last Name" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.lastName} />
           <FormInput label="yearOfBirth" inputTitle="Year of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.yearOfBirth} />
           <FormInput label="idNumber" inputTitle="ID Number" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.idNumber} />
-          <FormSelect label="planetOfBirth" inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.planetOfBirth} placeholder="Select a planet">
+          <FormSelect label="planetOfBirth" helperText={PLANETSELECTHELPERTEXT} inputTitle="Planet of Birth" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.planetOfBirth} placeholder="Select a planet">
             <option value="Magrathea">Magrathea</option>
             <option value="Earth">Earth</option>
             <option value="NowWhat">NowWhat</option>
@@ -124,7 +120,7 @@ export default function ApplicationForm({ formValue, disabled }) {
             <option value="Viltvodle 6">Viltvodle 6</option>
           </FormSelect>
           <FormTextArea label="address" inputTitle="Address" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.address} />
-          <FormTextArea label="reasonOfApply" inputTitle="Reason of Apply" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.reasonOfApply} />
+          <FormTextArea label="reasonOfApply" helperText={REASONTOAPPLYHELPERTEXT} inputTitle="Reason of Apply" register={register} errors={errors} required disabled={disabled} value={formValue && formValue.reasonOfApply} />
 
           {!disabled
             && (
