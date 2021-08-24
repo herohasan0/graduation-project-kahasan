@@ -25,5 +25,5 @@ export default function StatusCard({ imgSrc, status, count }) {
 StatusCard.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  count: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
 };
