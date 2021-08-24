@@ -11,13 +11,13 @@ import {
 } from '@chakra-ui/react';
 
 export default function FormTextArea({
-  inputTitle, label, register, required, errors, disabled, value,
+  inputTitle, label, register, required, errors, disabled, value, placeholder,
 }) {
   return (
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Textarea {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} />
+        <Textarea {...register(label, { required })} placeholder={placeholder} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} />
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>
     </>
@@ -29,6 +29,7 @@ FormTextArea.defaultProps = {
   label: '',
   inputTitle: '',
   errors: {},
+  placeholder: '',
 };
 
 FormTextArea.propTypes = {
@@ -37,4 +38,5 @@ FormTextArea.propTypes = {
   register: PropTypes.func.isRequired,
   required: PropTypes.bool,
   errors: PropTypes.shape({}),
+  placeholder: PropTypes.string,
 };
