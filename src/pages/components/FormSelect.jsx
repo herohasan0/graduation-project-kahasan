@@ -8,10 +8,11 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
+  FormHelperText,
 } from '@chakra-ui/react';
 
 export default function FormSelect({
-  inputTitle, label, register, required, errors, disabled, value, children, placeholder,
+  inputTitle, label, register, required, errors, disabled, value, children, placeholder, helperText,
 }) {
   return (
     <>
@@ -20,6 +21,7 @@ export default function FormSelect({
         <Select {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder={placeholder} disabled={disabled} value={value}>
           {children}
         </Select>
+        <FormHelperText>{helperText}</FormHelperText>
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>
     </>
@@ -32,6 +34,7 @@ FormSelect.defaultProps = {
   inputTitle: '',
   errors: {},
   placeholder: '',
+  helperText: '',
 };
 
 FormSelect.propTypes = {
@@ -41,4 +44,5 @@ FormSelect.propTypes = {
   required: PropTypes.bool,
   errors: PropTypes.shape({}),
   placeholder: PropTypes.string,
+  helperText: PropTypes.string,
 };
