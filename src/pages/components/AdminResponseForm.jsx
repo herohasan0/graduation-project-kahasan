@@ -52,10 +52,10 @@ export default function AdminResponseForm() {
 
         <Flex flexDir="column">
           <FormTextArea label="response" inputTitle="Response" register={register} placeholder="You can send notes to applicant. (optional)" />
-          <FormSelect label="status" inputTitle="Status" register={register} errors={errors} required value={state.result.status}>
-            <option>Pending</option>
-            <option>Approved</option>
-            <option>Cancelled</option>
+          <FormSelect label="status" inputTitle="Status" register={register} errors={errors} required>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Cancelled">Cancelled</option>
           </FormSelect>
 
           <Button
