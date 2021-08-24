@@ -1,4 +1,6 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 import firebase from './firebase';
 
 const db = firebase.firestore();
@@ -14,7 +16,9 @@ export const addData = async (data) => {
       yearOfBirth: data.yearOfBirth,
       address: data.address,
       planetOfBirth: data.planetOfBirth,
-      status: 'pending',
+      status: 'Pending',
+      subject: 'Citizenship Application',
+      createdDate: firebase.firestore.Timestamp.now(),
     })
     .then((docs) => {
       id = docs.id;
@@ -59,4 +63,10 @@ export const getUser = async (email, password) => {
     });
 
   return userInfo;
+};
+
+export const getForms = () => {
+  const formsRef = db.collection('form-list');
+  const [forms] = useCollectionData(formsRef, { idField: 'id' });
+  return forms;
 };
