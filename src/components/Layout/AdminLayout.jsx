@@ -8,6 +8,7 @@ import {
 import Sidebar from 'components/Sidebar';
 import SideBarItem from 'pages/components/SideBarItem';
 import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
+import { getApplicationCount, getTotalApplicationCount } from 'services/firestore';
 import StatusCard from './components/StatusCard';
 import Header from './components/Header';
 import LinkSection from './components/LinkSection';
@@ -15,6 +16,11 @@ import LinkSection from './components/LinkSection';
 export default function AdminLayout({ children }) {
   const [width, setWidth] = useState(sidebarMaxWidth);
   const handleWidth = () => setWidth(width === sidebarMaxWidth ? sidebarMinWidth : sidebarMaxWidth);
+  const totalApplicationCount = getTotalApplicationCount();
+  const totalPendingCount = getApplicationCount('Pending');
+  const totalApprovedCount = getApplicationCount('Approved');
+  const totalCancelledCount = getApplicationCount('Cancelled');
+  console.log('totalPendingCount', totalPendingCount);
   return (
     <Flex>
 
@@ -35,10 +41,10 @@ export default function AdminLayout({ children }) {
 
           {/* Status Section */}
           <Flex mt="7.5" w="full" justifyContent="space-between">
-            <StatusCard imgSrc="/assets/icons/total-application.png" count="145" status="Total Application" />
-            <StatusCard imgSrc="/assets/icons/pending-application.png" count="103" status="Pending Application" />
-            <StatusCard imgSrc="/assets/icons/approved-application.png" count="13" status="Approved Application" />
-            <StatusCard imgSrc="/assets/icons/cancelled-application.png" count="13" status="Cancelled Application" />
+            <StatusCard imgSrc="/assets/icons/total-application.png" count={totalApplicationCount} status="Total Application" />
+            <StatusCard imgSrc="/assets/icons/pending-application.png" count={totalPendingCount} status="Pending Application" />
+            <StatusCard imgSrc="/assets/icons/approved-application.png" count={totalApprovedCount} status="Approved Application" />
+            <StatusCard imgSrc="/assets/icons/cancelled-application.png" count={totalCancelledCount} status="Cancelled Application" />
           </Flex>
 
           {/* Main List */}
