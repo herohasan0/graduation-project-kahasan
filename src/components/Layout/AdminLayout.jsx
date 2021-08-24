@@ -11,7 +11,6 @@ import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
 import StatusCard from './components/StatusCard';
 import Header from './components/Header';
 import LinkSection from './components/LinkSection';
-import ListHeader from './components/ListHeader';
 
 export default function AdminLayout({ children }) {
   const [width, setWidth] = useState(sidebarMaxWidth);
@@ -44,13 +43,9 @@ export default function AdminLayout({ children }) {
 
           {/* Main List */}
           <Flex mt="7.5" w="full" backgroundColor="white" borderRadius="lg" pt="8" px="8" flexDir="column">
-            <ListHeader />
-            <Divider mt="2.5" />
 
             {/* Main List Row Items Will be Here */}
-            <Flex flexDir="column" h="24.375rem" overflowY="scroll" mb="2.5">
-              {children}
-            </Flex>
+            {children}
           </Flex>
 
           <Flex />
