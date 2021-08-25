@@ -19,9 +19,7 @@ import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
 } from 'CONSTANS';
 import Home from 'pages/Home';
-import { CheckStatus, CheckStatusResult } from 'pages';
-
-import FormList from 'pages/FormList';
+import { CheckStatus, CheckStatusResult, FormList } from 'pages';
 
 import FormTextArea from 'pages/components/FormTextArea';
 import AdminResponseForm from 'pages/components/AdminResponseForm';

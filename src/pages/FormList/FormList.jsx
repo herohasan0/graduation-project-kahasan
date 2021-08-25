@@ -3,7 +3,7 @@ import { ListItem } from 'components';
 import { getForms } from 'services/firestore';
 import { Flex } from '@chakra-ui/react';
 
-export default function FormList() {
+export function FormList() {
   const forms = getForms();
 
   return (
