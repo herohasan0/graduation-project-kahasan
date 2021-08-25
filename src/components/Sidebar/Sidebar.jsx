@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 import { sidebarMinWidth } from 'CONSTANS';
 
-export default function Sidebar({
+export function Sidebar({
   children, navTitle, handleWidth, width,
 }) {
   return (

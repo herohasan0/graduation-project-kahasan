@@ -1,11 +1,11 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Flex, Divider,
 } from '@chakra-ui/react';
 
-import Sidebar from 'components/Sidebar';
+import { Sidebar } from 'components';
 import SideBarItem from 'pages/components/SideBarItem';
 import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
 import { getApplicationCount, getTotalApplicationCount } from 'services/firestore';
@@ -16,11 +16,12 @@ import LinkSection from './components/LinkSection';
 export default function AdminLayout({ children }) {
   const [width, setWidth] = useState(sidebarMaxWidth);
   const handleWidth = () => setWidth(width === sidebarMaxWidth ? sidebarMinWidth : sidebarMaxWidth);
+
   const totalApplicationCount = getTotalApplicationCount();
   const totalPendingCount = getApplicationCount('Pending');
   const totalApprovedCount = getApplicationCount('Approved');
   const totalCancelledCount = getApplicationCount('Cancelled');
-  console.log('totalPendingCount', totalPendingCount);
+
   return (
     <Flex>
 
@@ -60,3 +61,7 @@ export default function AdminLayout({ children }) {
     </Flex>
   );
 }
+
+AdminLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
