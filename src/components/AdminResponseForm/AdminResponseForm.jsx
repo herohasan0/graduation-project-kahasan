@@ -14,15 +14,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { updateForm } from 'services/firestore';
 import { LIST } from 'navigation/CONSTANTS';
-import FormTextArea from './FormTextArea';
-import FormSelect from './FormSelect';
+import { FormTextArea, FormSelect } from 'components';
 
 const schema = yup.object().shape({
   response: yup.string(),
   status: yup.string().required(),
 });
 
-export default function AdminResponseForm() {
+export function AdminResponseForm() {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
