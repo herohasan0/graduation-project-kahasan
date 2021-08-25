@@ -4,7 +4,7 @@ import { Flex, Text, Image } from '@chakra-ui/react';
 
 import PropTypes from 'prop-types';
 
-export default function StatusCard({ imgSrc, status, count }) {
+export function StatusCard({ imgSrc, status, count }) {
   return (
     <Flex
       backgroundColor="white"

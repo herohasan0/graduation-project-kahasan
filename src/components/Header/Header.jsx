@@ -4,7 +4,7 @@ import { Flex, Text, Image } from '@chakra-ui/react';
 
 import PropTypes from 'prop-types';
 
-export default function Header({ title }) {
+export function Header({ title }) {
   return (
     <Flex justifyContent="space-between" alignItems="center" px="6">
       <Text fontSize="lg" fontWeight="bold">{title}</Text>

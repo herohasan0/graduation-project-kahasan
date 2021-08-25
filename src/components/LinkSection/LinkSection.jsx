@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Flex, Text } from '@chakra-ui/react';
 
-export default function LinkSection() {
+export function LinkSection() {
   return (
     <Flex alignItems="center" px="6" py="5.55">
       <Text>
