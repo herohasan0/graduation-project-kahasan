@@ -12,7 +12,7 @@ import {
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout/Layout';
 import Title from 'components/Title';
-import HelperText from 'components/HelperText';
+import { HelperText } from 'components';
 import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
 } from 'CONSTANS';
