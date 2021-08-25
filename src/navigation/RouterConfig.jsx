@@ -11,7 +11,7 @@ import {
 } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout/Layout';
-import { Title, HelperText } from 'components';
+import { Title, HelperText, ListHeader } from 'components';
 
 import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
@@ -21,7 +21,7 @@ import CheckStatus from 'pages/CheckStatus';
 import CheckStatusResult from 'pages/CheckStatusResult';
 import AdminLayout from 'components/Layout/AdminLayout';
 import FormList from 'pages/FormList';
-import ListHeader from 'components/Layout/components/ListHeader';
+
 import FormTextArea from 'pages/components/FormTextArea';
 import AdminResponseForm from 'pages/components/AdminResponseForm';
 import Admin from './Auth/Admin';

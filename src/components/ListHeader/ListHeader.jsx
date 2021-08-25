@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Flex, Text } from '@chakra-ui/react';
 
-export default function ListHeader() {
+export function ListHeader() {
   return (
     <Flex w="full" fontSize="sm" color="gray.title">
       <Text w="227px">Apply by</Text>
