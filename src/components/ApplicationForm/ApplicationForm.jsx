@@ -16,9 +16,7 @@ import * as yup from 'yup';
 import { addData } from 'services/firestore';
 import { SUCCESS } from 'navigation/CONSTANTS';
 import { PLANETSELECTHELPERTEXT, REASONTOAPPLYHELPERTEXT } from 'CONSTANS';
-import FormInput from './FormInput';
-import FormTextArea from './FormTextArea';
-import FormSelect from './FormSelect';
+import { FormTextArea, FormSelect, FormInput } from 'components';
 
 const schema = yup.object().shape({
   firstName: yup.string().max(50).required(),
@@ -30,7 +28,7 @@ const schema = yup.object().shape({
   reasonOfApply: yup.string().max(350).required(),
 });
 
-export default function ApplicationForm({ formValue, disabled }) {
+export function ApplicationForm({ formValue, disabled }) {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
