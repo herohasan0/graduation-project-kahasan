@@ -10,8 +10,10 @@ import {
   ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC, ADMIN, LIST,
 } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
-import Layout from 'components/Layout/Layout';
-import { Title, HelperText, ListHeader } from 'components';
+import {
+  Layout,
+  Title, HelperText, ListHeader, AdminLayout,
+} from 'components';
 
 import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
@@ -19,7 +21,7 @@ import {
 import Home from 'pages/Home';
 import CheckStatus from 'pages/CheckStatus';
 import CheckStatusResult from 'pages/CheckStatusResult';
-import AdminLayout from 'components/Layout/AdminLayout';
+
 import FormList from 'pages/FormList';
 
 import FormTextArea from 'pages/components/FormTextArea';
