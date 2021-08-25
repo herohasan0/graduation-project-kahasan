@@ -4,21 +4,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  Input,
+  Select,
   FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
 } from '@chakra-ui/react';
 
-export default function FormInput({
-  inputTitle, label, register, required, errors, disabled, value, helperText, ...props
+export function FormSelect({
+  inputTitle, label, register, required, errors, disabled, value, children, placeholder, helperText,
 }) {
   return (
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Input {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} {...props} />
+        <Select {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder={placeholder} disabled={disabled} value={value}>
+          {children}
+        </Select>
         <FormHelperText>{helperText}</FormHelperText>
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>
@@ -26,19 +28,21 @@ export default function FormInput({
   );
 }
 
-FormInput.defaultProps = {
+FormSelect.defaultProps = {
   required: false,
   label: '',
   inputTitle: '',
   errors: {},
+  placeholder: '',
   helperText: '',
 };
 
-FormInput.propTypes = {
+FormSelect.propTypes = {
   label: PropTypes.string,
   inputTitle: PropTypes.string,
   register: PropTypes.func.isRequired,
   required: PropTypes.bool,
   errors: PropTypes.shape({}),
+  placeholder: PropTypes.string,
   helperText: PropTypes.string,
 };
