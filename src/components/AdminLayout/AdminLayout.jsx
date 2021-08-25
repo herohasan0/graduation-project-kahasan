@@ -5,13 +5,12 @@ import {
   Flex, Divider,
 } from '@chakra-ui/react';
 
-import { Sidebar } from 'components';
-import SideBarItem from 'pages/components/SideBarItem';
+import {
+  Sidebar, SideBarItem, StatusCard, Header, LinkSection,
+} from 'components';
+
 import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
 import { getApplicationCount, getTotalApplicationCount } from 'services/firestore';
-import StatusCard from './components/StatusCard';
-import Header from './components/Header';
-import LinkSection from './components/LinkSection';
 
 export function AdminLayout({ children }) {
   const [width, setWidth] = useState(sidebarMaxWidth);

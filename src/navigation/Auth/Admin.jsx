@@ -11,7 +11,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 
-import FormInput from 'pages/components/FormInput';
+import { FormInput } from 'components';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';

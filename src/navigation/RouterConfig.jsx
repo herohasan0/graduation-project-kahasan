@@ -4,6 +4,7 @@ import { Switch, Route, useHistory } from 'react-router-dom';
 import {
   FormPage, CheckStatus, CheckStatusResult, FormList,
   SuccessPage,
+  Home,
 } from 'pages';
 
 import {
@@ -16,15 +17,14 @@ import NotFound from 'navigation/NotFound';
 import {
   Layout,
   Title, HelperText, ListHeader, AdminLayout,
+  AdminResponseForm,
+  FormTextArea,
 } from 'components';
 
 import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
 } from 'CONSTANS';
-import Home from 'pages/Home';
 
-import FormTextArea from 'pages/components/FormTextArea';
-import AdminResponseForm from 'pages/components/AdminResponseForm';
 import Admin from './Auth/Admin';
 import PrivateRoute from './Auth/PrivateRoute';
 

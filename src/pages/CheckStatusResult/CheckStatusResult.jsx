@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import ApplicationForm from 'pages/components/ApplicationForm';
+import { ApplicationForm } from 'components';
 
 import { useLocation } from 'react-router-dom';
 

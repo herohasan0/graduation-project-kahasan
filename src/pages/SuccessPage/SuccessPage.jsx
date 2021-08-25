@@ -1,5 +1,5 @@
 import React from 'react';
-import ApplicationForm from 'pages/components/ApplicationForm';
+import { ApplicationForm } from 'components';
 
 import {
   Alert, AlertIcon, AlertTitle, AlertDescription,

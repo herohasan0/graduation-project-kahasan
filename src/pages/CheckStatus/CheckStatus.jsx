@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
-import FormInput from 'pages/components/FormInput';
+import { FormInput } from 'components';
 
 import { Flex, Button } from '@chakra-ui/react';
 
