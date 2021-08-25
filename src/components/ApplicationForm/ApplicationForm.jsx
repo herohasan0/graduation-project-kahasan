@@ -12,21 +12,12 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { addData } from 'services/firestore';
 import { SUCCESS } from 'navigation/CONSTANTS';
 import { PLANETSELECTHELPERTEXT, REASONTOAPPLYHELPERTEXT } from 'CONSTANS';
 import { FormTextArea, FormSelect, FormInput } from 'components';
 
-const schema = yup.object().shape({
-  firstName: yup.string().max(50).required(),
-  lastName: yup.string().max(50).required(),
-  yearOfBirth: yup.number().required(),
-  idNumber: yup.number().required(),
-  planetOfBirth: yup.string().required(),
-  address: yup.string().max(250).required(),
-  reasonOfApply: yup.string().max(350).required(),
-});
+import { schema } from 'helpers/YupSchema';
 
 export function ApplicationForm({ formValue, disabled }) {
   const [isLoading, setIsLoading] = useState(false);
