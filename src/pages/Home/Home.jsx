@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Flex } from '@chakra-ui/react';
 
-export default function Home() {
+export function Home() {
   return (
     <>
       <Flex flexDir="column">
