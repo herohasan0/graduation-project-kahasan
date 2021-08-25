@@ -8,9 +8,9 @@ import {
 import ConvertDate from 'helper/ConvertDate';
 
 import { useHistory } from 'react-router-dom';
-import StatusBar from './StatusBar';
+import StatusBar from '../StatusBar';
 
-export default function ListItem({ form }) {
+export function ListItem({ form }) {
   const history = useHistory();
   const {
     firstName, subject, planetOfBirth, status, createdDate, id,

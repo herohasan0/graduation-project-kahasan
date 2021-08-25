@@ -1,5 +1,5 @@
 import React from 'react';
-import ListItem from 'components/Layout/components/ListItem';
+import { ListItem } from 'components';
 import { getForms } from 'services/firestore';
 import { Flex } from '@chakra-ui/react';
 
