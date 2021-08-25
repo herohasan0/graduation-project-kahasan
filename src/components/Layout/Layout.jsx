@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Flex, Image, Box } from '@chakra-ui/react';
 import { Cover } from 'components';
 
-export default function Layout({
+export function Layout({
   imgUrl, children, title, helperText,
 }) {
   return (
