@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 
 import {
-  Flex, Button, Box, Badge, Text, Alert, AlertIcon, AlertTitle, AlertDescription,
+  Flex, Button, Box, Badge, Text,
 } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
@@ -15,7 +15,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { addData } from 'services/firestore';
 import { SUCCESS } from 'navigation/CONSTANTS';
 import { PLANETSELECTHELPERTEXT, REASONTOAPPLYHELPERTEXT } from 'CONSTANS';
-import { FormTextArea, FormSelect, FormInput } from 'components';
+import {
+  FormTextArea, FormSelect, FormInput, AlertContainer,
+} from 'components';
 
 import { schema } from 'helpers/YupSchema';
 
@@ -60,23 +62,12 @@ export function ApplicationForm({ formValue, disabled }) {
         {formValue && formValue.adminNoted && (
         <>
           <Text>Admin Note:</Text>
-          <Alert
-            status={statusVariant(formValue.status).status}
-            variant="subtle"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-            py="30px"
-          >
-            <AlertIcon boxSize="40px" mr={0} />
-            <AlertTitle mt={4} mb={1} fontSize="lg">
-              {statusVariant(formValue.status).title}
-            </AlertTitle>
-            <AlertDescription maxWidth="sm">
-              {formValue.adminNoted}
-            </AlertDescription>
-          </Alert>
+          <AlertContainer
+            STATUS={statusVariant(formValue.status).status}
+            ALERTTITLE={statusVariant(formValue.status).title}
+            ALERTDESCRIPTION={formValue.adminNoted}
+          />
+
         </>
         )}
 
