@@ -10,7 +10,7 @@ import {
 
 import { useLocation } from 'react-router-dom';
 
-export default function Home() {
+export function SuccessPage() {
   const { state } = useLocation();
   console.log('location', state);
   return (
