@@ -19,6 +19,8 @@ import { FormTextArea, FormSelect, FormInput } from 'components';
 
 import { schema } from 'helpers/YupSchema';
 
+import { statusVariant } from 'helpers/StatusVariant';
+
 export function ApplicationForm({ formValue, disabled }) {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -43,29 +45,13 @@ export function ApplicationForm({ formValue, disabled }) {
     });
   };
 
-  const statusVariant = {
-    Approved: {
-      colorScheme: 'green',
-      status: 'success',
-      title: 'Congratulations! :)',
-    },
-    Cancelled: {
-      colorScheme: 'red',
-      status: 'error',
-      title: 'Soory :(',
-    },
-    Pending: {
-      colorScheme: 'gray',
-    },
-  };
-
   return (
     <Box w="full">
       <form onSubmit={handleSubmit(onSubmit)}>
         {formValue && formValue.status && (
           <>
             Application status:
-            <Badge colorScheme={statusVariant[formValue.status].colorScheme}>
+            <Badge colorScheme={statusVariant(formValue.status).colorScheme}>
               {formValue.status}
             </Badge>
           </>
@@ -75,7 +61,7 @@ export function ApplicationForm({ formValue, disabled }) {
         <>
           <Text>Admin Note:</Text>
           <Alert
-            status={statusVariant[formValue.status].status}
+            status={statusVariant(formValue.status).status}
             variant="subtle"
             flexDirection="column"
             alignItems="center"
@@ -85,7 +71,7 @@ export function ApplicationForm({ formValue, disabled }) {
           >
             <AlertIcon boxSize="40px" mr={0} />
             <AlertTitle mt={4} mb={1} fontSize="lg">
-              {statusVariant[formValue.status].title}
+              {statusVariant(formValue.status).title}
             </AlertTitle>
             <AlertDescription maxWidth="sm">
               {formValue.adminNoted}
