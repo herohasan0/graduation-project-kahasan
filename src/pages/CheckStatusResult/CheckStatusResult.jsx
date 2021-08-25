@@ -4,10 +4,8 @@ import ApplicationForm from 'pages/components/ApplicationForm';
 
 import { useLocation } from 'react-router-dom';
 
-export default function Home() {
+export function CheckStatusResult() {
   const { state } = useLocation();
-
-  console.log('state.result', state.result);
 
   return (
     <>
