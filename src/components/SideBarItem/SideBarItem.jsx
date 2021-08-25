@@ -8,7 +8,7 @@ import { sidebarMinWidth } from 'CONSTANS';
 
 import PropTypes from 'prop-types';
 
-export default function SideBarItem({
+export function SideBarItem({
   title, width, route, imgSrc,
 }) {
   return (
