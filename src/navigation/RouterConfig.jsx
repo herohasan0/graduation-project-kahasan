@@ -11,8 +11,8 @@ import {
 } from 'navigation/CONSTANTS';
 import NotFound from 'navigation/NotFound';
 import Layout from 'components/Layout/Layout';
-import Title from 'components/Title';
-import { HelperText } from 'components';
+import { Title, HelperText } from 'components';
+
 import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
 } from 'CONSTANS';
