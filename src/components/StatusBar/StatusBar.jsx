@@ -4,7 +4,7 @@ import { Center, Text } from '@chakra-ui/react';
 
 import PropTypes from 'prop-types';
 
-export default function StatusBar({ status }) {
+export function StatusBar({ status }) {
   let color;
   switch (status) {
     case 'Pending':
