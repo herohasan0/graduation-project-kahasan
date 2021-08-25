@@ -1,8 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
-import FormPage from 'pages/FormPage';
-import SuccessPage from 'pages/SuccessPage';
+import {
+  FormPage, CheckStatus, CheckStatusResult, FormList,
+  SuccessPage,
+} from 'pages';
+
 import {
   Divider, Flex, Box, Button,
 } from '@chakra-ui/react';
@@ -19,7 +22,6 @@ import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
 } from 'CONSTANS';
 import Home from 'pages/Home';
-import { CheckStatus, CheckStatusResult, FormList } from 'pages';
 
 import FormTextArea from 'pages/components/FormTextArea';
 import AdminResponseForm from 'pages/components/AdminResponseForm';
