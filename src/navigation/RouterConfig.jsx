@@ -19,7 +19,7 @@ import {
   FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
 } from 'CONSTANS';
 import Home from 'pages/Home';
-import CheckStatus from 'pages/CheckStatus';
+import { CheckStatus } from 'pages';
 import CheckStatusResult from 'pages/CheckStatusResult';
 
 import FormList from 'pages/FormList';

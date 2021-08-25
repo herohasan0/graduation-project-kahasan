@@ -5,7 +5,7 @@ import {
   Flex, Divider, Text, Image, Center, Menu, MenuButton, MenuList, MenuItem,
 } from '@chakra-ui/react';
 
-import ConvertDate from 'helper/ConvertDate';
+import ConvertDate from 'helpers/ConvertDate';
 
 import { useHistory } from 'react-router-dom';
 import { StatusBar } from 'components';

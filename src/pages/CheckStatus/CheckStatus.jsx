@@ -19,7 +19,7 @@ const schema = yup.object().shape({
   formId: yup.string().required(),
 });
 
-export default function Home() {
+export function CheckStatus() {
   const [isLoading, setIsLoading] = useState(false);
 
   const [Error, setError] = useState({});
