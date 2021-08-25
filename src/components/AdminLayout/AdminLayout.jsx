@@ -13,7 +13,7 @@ import StatusCard from './components/StatusCard';
 import Header from './components/Header';
 import LinkSection from './components/LinkSection';
 
-export default function AdminLayout({ children }) {
+export function AdminLayout({ children }) {
   const [width, setWidth] = useState(sidebarMaxWidth);
   const handleWidth = () => setWidth(width === sidebarMaxWidth ? sidebarMinWidth : sidebarMaxWidth);
 
