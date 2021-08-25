@@ -7,7 +7,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import theme from './styles/theme';
 
 import reportWebVitals from './reportWebVitals';
-import App from './App';
+import { App } from './components';
 
 // fonts
 import '@fontsource/roboto';
