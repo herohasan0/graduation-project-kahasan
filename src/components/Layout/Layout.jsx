@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-import Cover from 'components/Cover';
 import { Flex, Image, Box } from '@chakra-ui/react';
+import { Cover } from 'components';
 
 export default function Layout({
   imgUrl, children, title, helperText,
