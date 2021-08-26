@@ -10,9 +10,10 @@ import PropTypes from 'prop-types';
 
 import { sidebarMinWidth } from 'CONSTANS';
 
-export function Sidebar({
+export function SidebarContext({
   children, navTitle, handleWidth, width,
 }) {
+  console.log('***Sidebar rendered***');
   return (
     <Flex transition="0.5s" flexDir="column" w={`${width}px`} backgroundColor="black" color="white" h="fullH">
       <Flex justifyContent="space-between" pt={7.5} px={7.5}>
@@ -32,7 +33,9 @@ export function Sidebar({
   );
 }
 
-Sidebar.propTypes = {
+export const Sidebar = React.memo(SidebarContext);
+
+SidebarContext.propTypes = {
   children: PropTypes.node.isRequired,
   navTitle: PropTypes.string.isRequired,
 };

@@ -8,9 +8,11 @@ import { sidebarMinWidth } from 'CONSTANS';
 
 import PropTypes from 'prop-types';
 
-export function SideBarItem({
+export function SideBarItemContext({
   title, width, route, imgSrc,
 }) {
+  console.log('***SidebarItem rendered***');
+
   return (
     <Link to={route}>
       <Flex alignItems="center" h="48px" _hover={{ backgroundColor: 'hover.black' }} py={3} pl="31px">
@@ -23,7 +25,9 @@ export function SideBarItem({
   );
 }
 
-SideBarItem.propTypes = {
+export const SideBarItem = React.memo(SideBarItemContext);
+
+SideBarItemContext.propTypes = {
   title: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   route: PropTypes.string.isRequired,
