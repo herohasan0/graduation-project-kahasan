@@ -6,7 +6,7 @@ import { Box, Image } from '@chakra-ui/react';
 export function Cover({ imgUrl }) {
   return (
     <Box position="fixed">
-      <Image src={imgUrl} h="fullH" />
+      <Image data-testid="cover-image" src={imgUrl} h="fullH" />
     </Box>
   );
 }
