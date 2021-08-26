@@ -18,7 +18,7 @@ export function FormSelect({
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Select {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder={placeholder} disabled={disabled} value={value}>
+        <Select data-testid="form-select" {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder={placeholder} disabled={disabled} value={value}>
           {children}
         </Select>
         <FormHelperText>{helperText}</FormHelperText>
