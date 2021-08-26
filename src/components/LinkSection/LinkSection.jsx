@@ -6,20 +6,18 @@ import {
   BreadcrumbLink,
 } from '@chakra-ui/react';
 
-import { Link } from 'react-router-dom';
-
 export function LinkSection() {
   return (
-    <Breadcrumb separator="-" px="6" py="5.55">
+    <Breadcrumb data-testid="breadcrumb" separator="-" px="6" py="5.55">
 
       <BreadcrumbItem>
-        <BreadcrumbLink as={Link} to="#">
+        <BreadcrumbLink to="#">
           Home
         </BreadcrumbLink>
       </BreadcrumbItem>
 
       <BreadcrumbItem>
-        <BreadcrumbLink as={Link} to="#">
+        <BreadcrumbLink to="#">
           Forms
         </BreadcrumbLink>
       </BreadcrumbItem>
