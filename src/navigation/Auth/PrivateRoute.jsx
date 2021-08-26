@@ -2,13 +2,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import firebase from 'services/firebase';
 import { ADMIN } from 'navigation/CONSTANTS';
-
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuth } from 'contexts/authContext';
 
 function PrivateRoute({ children, ...rest }) {
-  const [user] = useAuthState(firebase.auth());
+  const { user } = useAuth();
 
   if (!user) return (<Redirect to={ADMIN} />);
 
