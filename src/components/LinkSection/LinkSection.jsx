@@ -1,14 +1,29 @@
 import React from 'react';
 
-import { Flex, Text } from '@chakra-ui/react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from '@chakra-ui/react';
+
+import { Link } from 'react-router-dom';
 
 export function LinkSection() {
   return (
-    <Flex alignItems="center" px="6" py="5.55">
-      <Text>
-        Home &gt;
-        <Text as="span" fontWeight="bold"> Forms</Text>
-      </Text>
-    </Flex>
+    <Breadcrumb separator="-" px="6" py="5.55">
+
+      <BreadcrumbItem>
+        <BreadcrumbLink as={Link} to="#">
+          Home
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+
+      <BreadcrumbItem>
+        <BreadcrumbLink as={Link} to="#">
+          Forms
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+
+    </Breadcrumb>
   );
 }
