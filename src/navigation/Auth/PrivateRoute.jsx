@@ -9,20 +9,17 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 function PrivateRoute({ children, ...rest }) {
   const [user] = useAuthState(firebase.auth());
-  return (
 
+  if (!user) return (<Redirect to={ADMIN} />);
+
+  return (
     <Route
       {...rest}
-      render={() => (user ? (
+      render={() => ((
         <>
           {children}
         </>
-      ) : (
-        <Redirect
-          to={ADMIN}
-        />
-      )
-      )}
+      ))}
     />
 
   );
