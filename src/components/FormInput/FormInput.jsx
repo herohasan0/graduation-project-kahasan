@@ -18,7 +18,7 @@ export function FormInput({
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Input {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} {...props} />
+        <Input data-testid="form-input" {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} {...props} />
         <FormHelperText>{helperText}</FormHelperText>
         <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
       </FormControl>
