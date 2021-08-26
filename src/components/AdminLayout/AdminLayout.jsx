@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-expressions */
+import React, { useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -11,10 +13,19 @@ import {
 
 import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
 import { getApplicationCount, getTotalApplicationCount } from 'services/firestore';
+import { useToggle } from 'hooks/useToggle';
 
 export function AdminLayout({ children }) {
   const [width, setWidth] = useState(sidebarMaxWidth);
-  const handleWidth = () => setWidth(width === sidebarMaxWidth ? sidebarMinWidth : sidebarMaxWidth);
+  const [opened, setIsOpened] = useToggle();
+
+  useEffect(() => {
+    if (opened) {
+      setWidth(sidebarMinWidth);
+    } else {
+      setWidth(sidebarMaxWidth);
+    }
+  }, [opened]);
 
   const totalApplicationCount = getTotalApplicationCount();
   const totalPendingCount = getApplicationCount('Pending');
@@ -25,7 +36,7 @@ export function AdminLayout({ children }) {
     <Flex>
 
       {/* Side navigation bar */}
-      <Sidebar navTitle="Admin." handleWidth={handleWidth} width={width}>
+      <Sidebar navTitle="Admin." handleWidth={setIsOpened} width={width}>
         <SideBarItem title="Forms" width={width} route="/admin/basvuru-listesi/forms" imgSrc="/assets/icons/file.png" />
       </Sidebar>
 
