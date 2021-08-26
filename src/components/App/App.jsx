@@ -4,11 +4,14 @@ import './App.css';
 // ROUTER
 import { BrowserRouter } from 'react-router-dom';
 import RouterConfig from 'navigation/RouterConfig';
+import { AuthProvider } from 'contexts/authContext';
 
 export function App() {
   return (
-    <BrowserRouter>
-      <RouterConfig />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <RouterConfig />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
