@@ -69,7 +69,7 @@ export default function Admin() {
         Sign in to your account
       </Heading>
       <Card mt="20px">
-        <form autoComplete="off">
+        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <Stack spacing="6">
             <FormInput
               type="text"
@@ -88,7 +88,7 @@ export default function Admin() {
               required
             />
 
-            <MyButton onClick={handleSubmit(onSubmit)} isLoading={isLoading} text="Login" loadingText="Login" />
+            <MyButton isLoading={isLoading} text="Login" loadingText="Login" />
 
           </Stack>
         </form>
