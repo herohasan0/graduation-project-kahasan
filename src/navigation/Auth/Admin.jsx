@@ -4,14 +4,14 @@
 import React, { useState, useEffect } from 'react';
 
 import {
-  Button, Box, Center, Image, Heading, Stack,
+  Box, Center, Image, Heading, Stack,
 } from '@chakra-ui/react';
 
 import { Link, useHistory } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 
-import { FormInput } from 'components';
+import { FormInput, MyButton } from 'components';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -93,14 +93,6 @@ export default function Admin() {
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <Stack spacing="6">
             <FormInput
-              _focus={{
-                borderColor: 'black',
-                boxShadow: '0 0 0 1px black',
-              }}
-              _hover={{
-                borderColor: 'black',
-                boxShadow: '0 0 0 1px black',
-              }}
               type="text"
               label="email"
               inputTitle="Email"
@@ -109,14 +101,6 @@ export default function Admin() {
               required
             />
             <FormInput
-              _focus={{
-                borderColor: 'black',
-                boxShadow: '0 0 0 1px black',
-              }}
-              _hover={{
-                borderColor: 'black',
-                boxShadow: '0 0 0 1px black',
-              }}
               type="password"
               label="password"
               inputTitle="Password"
@@ -125,19 +109,8 @@ export default function Admin() {
               required
             />
 
-            <Button
-              mt={24}
-              isLoading={isLoading}
-              loadingText="Login"
-              colorScheme="black"
-              backgroundColor="black"
-              color="white"
-              type="submit"
-              size="lg"
-              fontSize="md"
-            >
-              Login
-            </Button>
+            <MyButton isLoading={isLoading} text="Login" loadingText="Login" />
+
           </Stack>
         </form>
       </Card>

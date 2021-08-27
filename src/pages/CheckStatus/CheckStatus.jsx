@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
-import { FormInput } from 'components';
+import { FormInput, MyButton } from 'components';
 
-import { Flex, Button } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -63,16 +63,8 @@ export function CheckStatus() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDir="column">
           <FormInput label="formId" inputTitle="ID" register={register} errors={Error} required />
-          <Button
-            mt={24}
-            isLoading={isLoading}
-            loadingText="Sending"
-            variant="outline"
-            colorScheme="teal"
-            type="submit"
-          >
-            Check
-          </Button>
+
+          <MyButton isLoading={isLoading} text="Check" loadingText="Checking" />
 
         </Flex>
       </form>

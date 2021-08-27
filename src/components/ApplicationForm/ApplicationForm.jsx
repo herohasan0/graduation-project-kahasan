@@ -3,7 +3,7 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 
-import { Flex, Button, Box } from '@chakra-ui/react';
+import { Flex, Box } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ import {
   FormTextAreaContainer,
   FormSelectContainer,
   FormInputContainer,
+  MyButton,
 } from 'components';
 
 import { schema } from 'helpers/YupSchema';
@@ -61,16 +62,8 @@ export function ApplicationForm() {
           <FormSelectContainer register={register} errors={errors} />
           <FormTextAreaContainer register={register} errors={errors} />
 
-          <Button
-            mt={24}
-            isLoading={isLoading}
-            loadingText="Sending"
-            variant="outline"
-            colorScheme="teal"
-            type="submit"
-          >
-            Send
-          </Button>
+          <MyButton isLoading={isLoading} text="Send" loadingText="Sending" />
+
         </Flex>
       </form>
     </Box>

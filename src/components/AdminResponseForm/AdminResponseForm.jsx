@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import {
-  Flex, Button, Box,
+  Flex, Box,
 } from '@chakra-ui/react';
 
 import { useHistory, useLocation } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { updateForm } from 'services/firestore';
 import { LIST } from 'navigation/CONSTANTS';
-import { FormTextArea, FormSelect } from 'components';
+import { FormTextArea, FormSelect, MyButton } from 'components';
 
 const schema = yup.object().shape({
   response: yup.string(),
@@ -46,7 +46,7 @@ export function AdminResponseForm() {
   };
 
   return (
-    <Box w="full">
+    <Box w="full" mb="80px">
       <form onSubmit={handleSubmit(onSubmit)}>
 
         <Flex flexDir="column">
@@ -57,17 +57,7 @@ export function AdminResponseForm() {
             <option value="Cancelled">Cancelled</option>
           </FormSelect>
 
-          <Button
-            mt={24}
-            mb={24}
-            isLoading={isLoading}
-            loadingText="Sending"
-            variant="outline"
-            colorScheme="teal"
-            type="submit"
-          >
-            Send
-          </Button>
+          <MyButton isLoading={isLoading} text="Send" loadingText="Sending" />
 
         </Flex>
       </form>
