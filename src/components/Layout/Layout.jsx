@@ -11,7 +11,7 @@ export function Layout({
 }) {
   return (
     <Flex>
-      <Flex w="half" px={32.5} flexDir="column" mt={32.5} mb={48}>
+      <Flex h="760px" overflowY="scroll" w="half" px={32.5} flexDir="column" pt={32.5} pb={48}>
         <Flex mb={5} flexDir="column">
           <Link to="/">
             <Image src="./assets/images/logo.png" w="3xs" />
