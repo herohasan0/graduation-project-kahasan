@@ -4,20 +4,21 @@ import { FORMINPUTVALUES } from 'CONSTANS';
 import { FormInput } from 'components';
 
 export function FormInputContainer({
-  register, errors, required, disabled, value,
+  register, errors, disabled, value,
 }) {
+  console.log('value****', value);
   return (
     <>
-      {FORMINPUTVALUES.map(({ label, inputTitle }) => (
+      {FORMINPUTVALUES.map(({ label, inputTitle, id }) => (
         <FormInput
-          key={label}
+          key={id}
           label={label}
           inputTitle={inputTitle}
           register={register}
           errors={errors}
-          required={required}
+          required
           disabled={disabled}
-          value={value}
+          value={value && value[label]}
         />
       ))}
     </>

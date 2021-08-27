@@ -12,7 +12,8 @@ import {
 } from '@chakra-ui/react';
 
 export function FormSelect({
-  inputTitle, label, register, required, errors, disabled, value, children, placeholder, helperText,
+  inputTitle,
+  label, register = () => {}, required, errors, disabled, value, children, placeholder, helperText,
 }) {
   return (
     <>
@@ -35,12 +36,13 @@ FormSelect.defaultProps = {
   errors: {},
   placeholder: '',
   helperText: '',
+  register: () => {},
 };
 
 FormSelect.propTypes = {
   label: PropTypes.string,
   inputTitle: PropTypes.string,
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func,
   required: PropTypes.bool,
   errors: PropTypes.shape({}),
   placeholder: PropTypes.string,

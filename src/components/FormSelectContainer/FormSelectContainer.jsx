@@ -4,7 +4,7 @@ import { PLANETS, PLANETSELECTHELPERTEXT } from 'CONSTANS';
 import { FormSelect } from 'components';
 
 export function FormSelectContainer({
-  register, errors, required, disabled, value,
+  register, errors, disabled, value,
 }) {
   return (
     <>
@@ -14,9 +14,9 @@ export function FormSelectContainer({
         inputTitle="Planet of Birth"
         register={register}
         errors={errors}
-        required={required}
+        required
         disabled={disabled}
-        value={value}
+        value={value && value.planetOfBirth}
         placeholder="Select a planet"
       >
         {PLANETS.map(({ name, id }) => (

@@ -4,21 +4,23 @@ import { FORMTEXTAREAVALUES } from 'CONSTANS';
 import { FormTextArea } from 'components';
 
 export function FormTextAreaContainer({
-  register, errors, required, disabled, value,
+  register, errors, disabled, value,
 }) {
   return (
     <>
-      {FORMTEXTAREAVALUES.map(({ label, inputTitle, helperText }) => (
+      {FORMTEXTAREAVALUES.map(({
+        label, inputTitle, helperText, id,
+      }) => (
         <FormTextArea
-          key={label}
+          key={id}
           label={label}
           inputTitle={inputTitle}
           helperText={helperText}
           register={register}
           errors={errors}
-          required={required}
+          required
           disabled={disabled}
-          value={value}
+          value={value && value[label]}
         />
       ))}
     </>

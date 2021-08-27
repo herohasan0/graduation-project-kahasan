@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 export function FormInput({
-  inputTitle, label, register, required, errors, disabled, value, helperText, ...props
+  inputTitle, label, register = () => {}, required, errors, disabled, value, helperText, ...props
 }) {
   return (
     <>
@@ -32,12 +32,13 @@ FormInput.defaultProps = {
   inputTitle: '',
   errors: {},
   helperText: '',
+  register: () => {},
 };
 
 FormInput.propTypes = {
   label: PropTypes.string,
   inputTitle: PropTypes.string,
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func,
   required: PropTypes.bool,
   errors: PropTypes.shape({}),
   helperText: PropTypes.string,
