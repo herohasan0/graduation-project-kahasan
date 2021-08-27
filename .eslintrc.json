@@ -2,11 +2,12 @@
   "extends": "airbnb",
   "rules": {
     "import/no-unresolved": [
-       0, 
+       "off", 
        { "caseSensitive": false }
     ],
-    "import/prefer-default-export" : 0,
-    "no-undef" : 0
+    "import/prefer-default-export" : "off",
+    "no-undef" : "off",
+    "object-curly-newline": "off"
  }
 }
 
