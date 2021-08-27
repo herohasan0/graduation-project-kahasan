@@ -1,11 +1,12 @@
 import React from 'react';
-import { ApplicationForm, AlertContainer } from 'components';
+import {  AlertContainer } from 'components';
 
 import {
   ALERTTITLE, ALERTDESCRIPTION, ALERTIDMESSAGE, NOTICEMESSAGE,
 } from 'CONSTANS';
 
 import { useLocation } from 'react-router-dom';
+import { SuccessForm } from 'components/SuccessForm/SuccessForm';
 
 export function SuccessPage() {
   const { state } = useLocation();
@@ -20,7 +21,7 @@ export function SuccessPage() {
         NOTICEMESSAGE={NOTICEMESSAGE}
       />
 
-      <ApplicationForm formValue={state.data} disabled />
+      <SuccessForm noAdminNote noApplicationStatus formValue={state.data} />
     </>
   );
 }

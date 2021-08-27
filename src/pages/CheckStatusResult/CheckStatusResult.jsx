@@ -1,6 +1,5 @@
-/* eslint-disable no-undef */
 import React from 'react';
-import { ApplicationForm } from 'components';
+import { SuccessForm } from 'components';
 
 import { useLocation } from 'react-router-dom';
 
@@ -9,7 +8,7 @@ export function CheckStatusResult() {
 
   return (
     <>
-      <ApplicationForm formValue={state.result} disabled />
+      <SuccessForm formValue={state.result} />
     </>
   );
 }
