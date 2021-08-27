@@ -1,12 +1,14 @@
 import React from 'react';
-import {  AlertContainer } from 'components';
+import { useLocation } from 'react-router-dom';
+
+import { AlertContainer, SuccessForm } from 'components';
 
 import {
-  ALERTTITLE, ALERTDESCRIPTION, ALERTIDMESSAGE, NOTICEMESSAGE,
+  ALERTTITLE,
+  ALERTDESCRIPTION,
+  ALERTIDMESSAGE,
+  NOTICEMESSAGE,
 } from 'CONSTANS';
-
-import { useLocation } from 'react-router-dom';
-import { SuccessForm } from 'components/SuccessForm/SuccessForm';
 
 export function SuccessPage() {
   const { state } = useLocation();

@@ -8,7 +8,7 @@ import {
 } from 'pages';
 
 import {
-  Divider, Flex, Box, Button,
+  Divider, Flex, Box,
 } from '@chakra-ui/react';
 import {
   ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC, ADMIN, LIST,
