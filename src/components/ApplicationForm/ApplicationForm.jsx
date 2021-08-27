@@ -10,8 +10,7 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { addData } from 'services/firestore';
-import { SUCCESS } from 'navigation/CONSTANTS';
+import { submitForm } from 'helpers/Submit';
 
 import {
   FormTextAreaContainer,
@@ -31,26 +30,13 @@ export function ApplicationForm() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
   const history = useHistory();
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     setIsLoading(true);
-
-    addData(data)
-      .then((docs) => {
-        setIsLoading(false);
-        history.push({
-          pathname: SUCCESS,
-          state: { data, dataid: docs },
-        });
-      })
-      .catch((error) => {
-        alert(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    submitForm(data, history).then(() => {
+      setIsLoading(false);
+    });
   };
 
   return (

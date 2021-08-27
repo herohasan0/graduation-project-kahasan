@@ -12,9 +12,8 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { updateForm } from 'services/firestore';
-import { LIST } from 'navigation/CONSTANTS';
 import { FormTextArea, FormSelect, MyButton } from 'components';
+import { updateFormSubmit } from 'helpers/Submit';
 
 const schema = yup.object().shape({
   response: yup.string(),
@@ -30,17 +29,9 @@ export function AdminResponseForm() {
   const history = useHistory();
   const { state } = useLocation();
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     setIsLoading(true);
-
-    updateForm(state.formId, data).then(() => {
-      setIsLoading(false);
-      history.push({
-        pathname: LIST,
-      });
-    }).catch((error) => {
-      alert(error);
-    }).finally(() => {
+    updateFormSubmit(state.formId, data, history).then(() => {
       setIsLoading(false);
     });
   };

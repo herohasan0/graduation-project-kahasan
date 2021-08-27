@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import { FormInput, MyButton } from 'components';
@@ -14,6 +15,8 @@ import { useForm } from 'react-hook-form';
 import { getData } from 'services/firestore';
 
 import { NOAPPLICATONERROR } from 'CONSTANS';
+
+import { checkStatusSubmit } from 'helpers/Submit';
 
 const schema = yup.object().shape({
   formId: yup.string().required(),
@@ -36,24 +39,14 @@ export function CheckStatus() {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-
-    getData(data.formId).then((result) => {
-      if (result) {
-        setIsLoading(false);
-        history.push({
-          pathname: `/basvuru/${data.formId}`,
-          state: { result, dataid: data.formId },
-        });
-      } else {
+    checkStatusSubmit(data.formId, history).then((result) => {
+      if (!result) {
         setError({
           formId: {
             message: NOAPPLICATONERROR,
           },
         });
       }
-    }).catch((error) => {
-      alert(error);
-    }).finally(() => {
       setIsLoading(false);
     });
   };

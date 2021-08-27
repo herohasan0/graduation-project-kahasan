@@ -16,9 +16,7 @@ import { FormInput, MyButton } from 'components';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import { getUser } from 'services/firestore';
-
-import { LIST } from 'navigation/CONSTANTS';
+import { adminFormSubmit } from 'helpers/Submit';
 
 const schema = yup.object().shape({
   email: yup.string().required(),
@@ -40,26 +38,16 @@ export default function Admin() {
 
   const history = useHistory();
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     setIsLoading(true);
-
-    getUser(data.email, data.password).then((user) => {
-      if (user) {
-        setIsLoading(false);
-        history.push({
-          pathname: LIST,
-          state: { userId: user.uid },
-        });
-      } else {
+    adminFormSubmit(data.email, data.password, history).then((user) => {
+      if (!user) {
         setError({
           email: {
-            message: 'The password is invalid or the user does not have a password.',
+            message: 'The email and password you entered did not match our records. Please double-check and try again.',
           },
         });
       }
-    }).catch((error) => {
-      alert(error);
-    }).finally(() => {
       setIsLoading(false);
     });
   };
@@ -67,14 +55,9 @@ export default function Admin() {
   const Card = (props) => (
     <Box
       py="8"
-      px={{
-        base: '4',
-        md: '10',
-      }}
+      px="10"
       shadow="base"
-      rounded={{
-        sm: 'lg',
-      }}
+      rounded="lg"
       {...props}
     />
   );
