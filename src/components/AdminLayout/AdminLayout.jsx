@@ -4,12 +4,12 @@ import React, { useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  Flex, Divider,
+  Flex, Divider, Box, Image, Text,
 } from '@chakra-ui/react';
 
 import {
   Sidebar, SideBarItem, StatusCard, Header, LinkSection,
-} from 'components';
+  Logout } from 'components';
 
 import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
 import { getApplicationCount, getTotalApplicationCount } from 'services/firestore';
@@ -37,7 +37,8 @@ export function AdminLayout({ children }) {
 
       {/* Side navigation bar */}
       <Sidebar navTitle="Admin." handleWidth={setIsOpened} width={width}>
-        <SideBarItem title="Forms" width={width} route="/admin/basvuru-listesi/forms" imgSrc="/assets/icons/file.png" />
+        <SideBarItem title="Forms" width={width} imgSrc="/assets/icons/file.png" route="/admin/basvuru-listesi" selected />
+        <Logout width={width} />
       </Sidebar>
 
       {/* Whole screen except sidebar */}
