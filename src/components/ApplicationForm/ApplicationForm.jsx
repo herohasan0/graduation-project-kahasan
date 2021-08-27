@@ -1,15 +1,11 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-undef */
-/* eslint-disable no-alert */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Flex, Box } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
 
-import { useForm } from 'react-hook-form';
+import { applicationFormSchema } from 'helpers/YupSchema';
 
-import { yupResolver } from '@hookform/resolvers/yup';
 import { submitForm } from 'helpers/Submit';
 
 import {
@@ -19,17 +15,17 @@ import {
   MyButton,
 } from 'components';
 
-import { schema } from 'helpers/YupSchema';
+import { useFormContext } from 'contexts/formContext';
 
 export function ApplicationForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+
+  const { errors, handleSubmit, register, setSchema } = useFormContext();
+
+  useEffect(() => {
+    setSchema(applicationFormSchema);
+  }, []);
+
   const history = useHistory();
 
   const onSubmit = (data) => {

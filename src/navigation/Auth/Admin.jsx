@@ -9,28 +9,24 @@ import {
 
 import { Link, useHistory } from 'react-router-dom';
 
-import { useForm } from 'react-hook-form';
-
 import { FormInput, MyButton } from 'components';
-
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 
 import { adminFormSubmit } from 'helpers/Submit';
 
-const schema = yup.object().shape({
-  email: yup.string().required(),
-  password: yup.string().required(),
-});
+import { loginFormSchema } from 'helpers/YupSchema';
+
+import { useFormContext } from 'contexts/formContext';
 
 export default function Admin() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [Error, setError] = useState({});
+  const { errors, handleSubmit, register, setSchema } = useFormContext();
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema),
-  });
+  useEffect(() => {
+    setSchema(loginFormSchema);
+  }, []);
+
+  const [Error, setError] = useState({});
 
   useEffect(() => {
     setError(errors);
@@ -73,7 +69,7 @@ export default function Admin() {
         Sign in to your account
       </Heading>
       <Card mt="20px">
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+        <form autoComplete="off">
           <Stack spacing="6">
             <FormInput
               type="text"
@@ -92,7 +88,7 @@ export default function Admin() {
               required
             />
 
-            <MyButton isLoading={isLoading} text="Login" loadingText="Login" />
+            <MyButton onClick={handleSubmit(onSubmit)} isLoading={isLoading} text="Login" loadingText="Login" />
 
           </Stack>
         </form>
