@@ -12,15 +12,43 @@ import {
 } from '@chakra-ui/react';
 
 export function FormInput({
-  inputTitle, label, register = () => {}, required, errors, disabled, value, helperText, ...props
+  inputTitle,
+  label,
+  register = () => {},
+  required,
+  errors,
+  disabled,
+  value,
+  helperText,
+  ...props
 }) {
   return (
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Input data-testid="form-input" {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} disabled={disabled} value={value} {...props} />
+        <Input
+          data-testid="form-input"
+          {...register(label, { required })}
+          borderColor="black"
+          borderRadius="lg"
+          mt="3"
+          id={label}
+          disabled={disabled}
+          value={value}
+          {...props}
+          _focus={{
+            borderColor: 'black',
+            boxShadow: '0 0 0 1px black',
+          }}
+          _hover={{
+            borderColor: 'black',
+            boxShadow: '0 0 0 1px black',
+          }}
+        />
         <FormHelperText>{helperText}</FormHelperText>
-        <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
+        <FormErrorMessage>
+          {errors[`${label}`] && errors[`${label}`].message}
+        </FormErrorMessage>
       </FormControl>
     </>
   );

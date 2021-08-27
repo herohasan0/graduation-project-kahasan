@@ -13,17 +13,45 @@ import {
 
 export function FormSelect({
   inputTitle,
-  label, register = () => {}, required, errors, disabled, value, children, placeholder, helperText,
+  label,
+  register = () => {},
+  required,
+  errors,
+  disabled,
+  value,
+  children,
+  placeholder,
+  helperText,
 }) {
   return (
     <>
       <FormControl isInvalid={errors[`${label}`]} mt={7}>
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
-        <Select data-testid="form-select" {...register(label, { required })} borderColor="black" borderRadius="lg" mt="3" id={label} placeholder={placeholder} disabled={disabled} value={value}>
+        <Select
+          data-testid="form-select"
+          {...register(label, { required })}
+          borderColor="black"
+          borderRadius="lg"
+          mt="3"
+          id={label}
+          placeholder={placeholder}
+          disabled={disabled}
+          value={value}
+          _focus={{
+            borderColor: 'black',
+            boxShadow: '0 0 0 1px black',
+          }}
+          _hover={{
+            borderColor: 'black',
+            boxShadow: '0 0 0 1px black',
+          }}
+        >
           {children}
         </Select>
         <FormHelperText>{helperText}</FormHelperText>
-        <FormErrorMessage>{errors[`${label}`] && errors[`${label}`].message}</FormErrorMessage>
+        <FormErrorMessage>
+          {errors[`${label}`] && errors[`${label}`].message}
+        </FormErrorMessage>
       </FormControl>
     </>
   );
