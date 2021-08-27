@@ -23,3 +23,4 @@ export * from './FormInputContainer';
 export * from './FormSelectContainer';
 export * from './FormTextAreaContainer';
 export * from './SuccessForm';
+export * from './MyButton';
