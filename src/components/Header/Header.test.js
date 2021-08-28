@@ -9,7 +9,6 @@ test('Component should render and show text correctly', () => {
 
 test('Component should include these items', () => {
   const { getByTestId } = render(<Header title="Test" />);
-  getByTestId('notification-icon-header');
   getByTestId('profile-icon-header');
   getByTestId('text-header');
 });
