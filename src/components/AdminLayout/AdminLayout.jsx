@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState, useCallback } from 'react';
@@ -33,7 +34,7 @@ export function AdminLayout({ children }) {
   const totalCancelledCount = getApplicationCount('Cancelled');
 
   return (
-    <Flex>
+    <Flex data-testid="admin-layout">
 
       {/* Side navigation bar */}
       <Sidebar navTitle="Admin." handleWidth={setIsOpened} width={width}>
@@ -72,7 +73,3 @@ export function AdminLayout({ children }) {
     </Flex>
   );
 }
-
-AdminLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
