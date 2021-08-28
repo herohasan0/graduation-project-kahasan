@@ -18,6 +18,7 @@ export function AlertContainer({
         justifyContent="center"
         textAlign="center"
         py="30px"
+        data-testid="alert-container"
       >
         <AlertIcon boxSize="40px" mr={0} />
         <AlertTitle mt={4} mb={1} fontSize="lg">
