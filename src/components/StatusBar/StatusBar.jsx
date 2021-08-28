@@ -20,7 +20,7 @@ export function StatusBar({ status }) {
       break;
   }
   return (
-    <Center backgroundColor={`${color}.background`} px="4" py="1.5" borderRadius="4xl">
+    <Center data-testid="statusbar" backgroundColor={`${color}.background`} px="4" py="1.5" borderRadius="4xl">
       <Text color={`${color}.color`}>
         {status}
       </Text>
