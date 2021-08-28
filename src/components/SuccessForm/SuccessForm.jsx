@@ -16,7 +16,7 @@ import { statusVariant } from 'helpers/StatusVariant';
 
 export function SuccessForm({ formValue, noAdminNote, noApplicationStatus }) {
   return (
-    <Box w="full">
+    <Box w="full" data-testid="success-form">
 
       {!noApplicationStatus && (
         <>
