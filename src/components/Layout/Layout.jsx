@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
-
 import { Flex, Image, Box } from '@chakra-ui/react';
 import { Cover } from 'components';
+
+import { useHistory } from 'react-router-dom';
 
 export function Layout({
   imgUrl, children, title, helperText,
 }) {
+  const history = useHistory();
+
+  console.log('children', typeof children);
   return (
-    <Flex>
+    <Flex data-testid="layout">
       <Flex h="760px" overflowY="scroll" w="half" px={32.5} flexDir="column" pt={32.5} pb={48}>
         <Flex mb={5} flexDir="column">
-          <Link to="/">
+          <Box onClick={() => history.push({ pathname: '/' })} cursor="pointer">
             <Image src="./assets/images/logo.png" w="3xs" />
-          </Link>
+          </Box>
 
           {title && (
           <Box mt={10}>
