@@ -15,7 +15,15 @@ export function SidebarContext({
 }) {
   console.log('***Sidebar rendered***');
   return (
-    <Flex transition="0.5s" flexDir="column" w={`${width}px`} backgroundColor="black" color="white" h="fullH">
+    <Flex
+      data-testid="sidebar"
+      transition="0.5s"
+      flexDir="column"
+      w={`${width}px`}
+      backgroundColor="black"
+      color="white"
+      h="fullH"
+    >
       <Flex justifyContent="space-between" pt={7.5} px={7.5}>
         {width > sidebarMinWidth && (
           <Text fontSize="lg">{navTitle}</Text>
