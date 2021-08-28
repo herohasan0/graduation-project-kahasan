@@ -37,7 +37,7 @@ export function AdminResponseForm() {
   };
 
   return (
-    <Box w="full" mb="80px">
+    <Box w="full" mb="80px" data-testid="admin-response-form">
       <form onSubmit={handleSubmit(onSubmit)}>
 
         <Flex flexDir="column">
