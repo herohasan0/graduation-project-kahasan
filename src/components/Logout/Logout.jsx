@@ -27,6 +27,7 @@ export function Logout({ width, black, big }) {
       pl="31px"
       onClick={signout}
       cursor="pointer"
+      data-testid="logout"
     >
       <Image boxSize={boxSize} src={src} />
 
