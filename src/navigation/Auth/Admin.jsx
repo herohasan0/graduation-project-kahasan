@@ -7,7 +7,7 @@ import {
   Box, Center, Image, Heading, Stack,
 } from '@chakra-ui/react';
 
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { FormInput, MyButton } from 'components';
 
@@ -60,10 +60,8 @@ export default function Admin() {
 
   return (
     <Box maxW="md" mx="auto" mt="50px">
-      <Center>
-        <Link to="/">
-          <Image src="./assets/images/logo.png" w="3xs" />
-        </Link>
+      <Center onClick={() => history.push({ pathname: '/' })} cursor="pointer">
+        <Image src="./assets/images/logo.png" w="3xs" />
       </Center>
       <Heading fontFamily="body" textAlign="center" size="xl" fontWeight="bold" mt="40px">
         Sign in to your account
