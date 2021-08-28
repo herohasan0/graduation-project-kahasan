@@ -36,7 +36,7 @@ export function ApplicationForm() {
   };
 
   return (
-    <Box w="full">
+    <Box w="full" data-testid="application-form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDir="column">
 
