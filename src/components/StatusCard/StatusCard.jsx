@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 export function StatusCard({ imgSrc, status, count }) {
   return (
     <Flex
+      data-testid="statuscard"
       backgroundColor="white"
       p="5.5"
       borderRadius="lg"
