@@ -16,6 +16,8 @@ export function MyButton({ text, loadingText, isLoading, onClick }) {
       type="submit"
       size="lg"
       fontSize="md"
+      data-testid="mybutton"
+
     >
       {text}
     </Button>
