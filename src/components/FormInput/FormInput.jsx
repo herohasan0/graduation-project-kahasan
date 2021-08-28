@@ -24,7 +24,7 @@ export function FormInput({
 }) {
   return (
     <>
-      <FormControl isInvalid={errors[`${label}`]} mt={7}>
+      <FormControl isInvalid={errors[`${label}`]} mt={7} data-testid="form-input-container">
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
         <Input
           data-testid="form-input"
