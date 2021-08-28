@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { Flex, Image, Text, Link } from '@chakra-ui/react';
 
 import { sidebarMinWidth } from 'CONSTANS';
 
@@ -17,6 +15,7 @@ export function SideBarItemContext({
   return (
     <Link to={route}>
       <Flex
+        data-testid="sidebar-item"
         alignItems="center"
         h="48px"
         _hover={{ backgroundColor: 'hover.black' }}
