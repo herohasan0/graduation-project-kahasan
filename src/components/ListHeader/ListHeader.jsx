@@ -29,11 +29,12 @@ export function ListHeader() {
 }
 
 TH.defaultProps = {
-  display: 'table-cell',
+  display: {},
+  isNumeric: false,
 };
 
 TH.propTypes = {
   title: PropTypes.string.isRequired,
-  isNumeric: PropTypes.bool.isRequired,
-  display: PropTypes.string,
+  isNumeric: PropTypes.bool,
+  display: PropTypes.shape({}),
 };

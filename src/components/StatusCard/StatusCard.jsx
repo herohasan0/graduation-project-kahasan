@@ -31,12 +31,13 @@ export function StatusCard({ imgSrc, status, count, display }) {
 }
 
 StatusCard.defaultProps = {
-  display: 'flex',
+  display: {},
+  count: 0,
 };
 
 StatusCard.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired,
-  display: PropTypes.string,
+  count: PropTypes.number,
+  display: PropTypes.shape({}),
 };
