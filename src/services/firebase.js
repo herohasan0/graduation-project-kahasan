@@ -16,6 +16,6 @@ if (!firebase.apps.length) {
   // if already initialized, use that one
   firebase.app();
 }
-firebase.analytics();
+// firebase.analytics();
 
 export default firebase;

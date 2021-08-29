@@ -92,10 +92,14 @@ const RouterConfig = () => {
       <Route exact path={ADMIN}>
         <Admin />
       </Route>
-
+      {/* h="27rem" */}
       <PrivateRoute exact path={LIST}>
         <AdminLayout>
-          <Box h="27rem" overflow="auto" fontFamily="roboto">
+          <Box
+            h={{ base: 'calc(100vh - 18rem)', '2lg': 'calc(100vh - 22rem)' }}
+            overflow="auto"
+            fontFamily="roboto"
+          >
             <Table>
               <ListHeader />
               <FormList />
@@ -115,7 +119,13 @@ const RouterConfig = () => {
             &lt;
           </Flex>
           <Divider mt="2.5" mb="2.5" />
-          <Box overflowY="scroll" h="395px">
+          <Box
+            overflowY="scroll"
+            h={{
+              base: 'calc(100vh - 21.5rem)',
+              '2lg': 'calc(100vh - 26.5rem)',
+            }}
+          >
             <CheckStatusResult />
             <Divider mt="25px" mb="2.5" />
             <AdminResponseForm />

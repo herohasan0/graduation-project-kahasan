@@ -28,15 +28,15 @@ export function ListItem({ form }) {
           </Flex>
         </Td>
 
-        <Td w="275px">{subject}</Td>
+        <Td display={{ base: 'none', lg: 'table-cell' }}>{subject}</Td>
 
-        <Td w="166px">{planetOfBirth}</Td>
+        <Td display={{ base: 'none', '2sm': 'table-cell' }}>{planetOfBirth}</Td>
 
-        <Td>
+        <Td display={{ base: 'none', sm: 'table-cell' }}>
           <StatusBar status={status} />
         </Td>
 
-        <Td isNumeric w="193px">
+        <Td display={{ base: 'none', md: 'table-cell' }} isNumeric>
           {ConvertDate(createdDate.seconds)}
         </Td>
 

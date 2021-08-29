@@ -2,20 +2,17 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import {
-  chakra, Flex, Image, Text, Box,
-} from '@chakra-ui/react';
+import { chakra, Flex, Image, Text, Box } from '@chakra-ui/react';
 
 import PropTypes from 'prop-types';
 
 import { sidebarMinWidth } from 'CONSTANS';
 
-export function SidebarContext({
-  children, navTitle, handleWidth, width,
-}) {
+export function SidebarContext({ children, navTitle, handleWidth, width }) {
   console.log('***Sidebar rendered***');
   return (
     <Flex
+      display={{ base: 'none', '2md': 'block' }}
       data-testid="sidebar"
       transition="0.5s"
       flexDir="column"
@@ -25,17 +22,13 @@ export function SidebarContext({
       h="fullH"
     >
       <Flex justifyContent="space-between" pt={7.5} px={7.5}>
-        {width > sidebarMinWidth && (
-          <Text fontSize="lg">{navTitle}</Text>
-        )}
+        {width > sidebarMinWidth && <Text fontSize="lg">{navTitle}</Text>}
         <Box cursor="pointer" w="1.5rem" h="1.5rem" onClick={handleWidth}>
           <Image w="1.5rem" maxW="initial" src="/assets/icons/hamburger.png" />
         </Box>
       </Flex>
       <chakra.nav mt={15}>
-        <Flex flexDir="column">
-          {children}
-        </Flex>
+        <Flex flexDir="column">{children}</Flex>
       </chakra.nav>
     </Flex>
   );
