@@ -1,28 +1,45 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
+
 import { Switch, Route, useHistory } from 'react-router-dom';
+
 import {
-  FormPage, CheckStatus, CheckStatusResult, FormList,
+  FormPage,
+  CheckStatus,
+  CheckStatusResult,
+  FormList,
   SuccessPage,
   Home,
 } from 'pages';
 
+import { Divider, Flex, Box, Table } from '@chakra-ui/react';
+
 import {
-  Divider, Flex, Box,
-} from '@chakra-ui/react';
-import {
-  ROOT, FORM, SUCCESS, CHECK, CHECK_SPECIFIC, ADMIN, LIST,
+  ROOT,
+  FORM,
+  SUCCESS,
+  CHECK,
+  CHECK_SPECIFIC,
+  ADMIN,
+  LIST,
 } from 'navigation/CONSTANTS';
+
 import NotFound from 'navigation/NotFound';
+
 import {
   Layout,
-  Title, HelperText, ListHeader, AdminLayout,
+  Title,
+  HelperText,
+  ListHeader,
+  AdminLayout,
   AdminResponseForm,
-  FormTextArea,
 } from 'components';
 
 import {
-  FORMTITLE, HELPERTEXT, COVERURL, CHECKTITLE, CHECKDESCRIPTION,
+  FORMTITLE,
+  HELPERTEXT,
+  COVERURL,
+  CHECKTITLE,
+  CHECKDESCRIPTION,
 } from 'CONSTANS';
 
 import Admin from './Auth/Admin';
@@ -35,9 +52,7 @@ const RouterConfig = () => {
     <Switch>
       {/* List all public routes here */}
       <Route exact path={ROOT}>
-        <Layout
-          imgUrl={COVERURL}
-        >
+        <Layout imgUrl={COVERURL}>
           <Home />
         </Layout>
       </Route>
@@ -69,10 +84,7 @@ const RouterConfig = () => {
       </Route>
 
       <Route exact path={CHECK_SPECIFIC}>
-        <Layout
-          imgUrl={COVERURL}
-          title={<Title title={CHECKTITLE} />}
-        >
+        <Layout imgUrl={COVERURL} title={<Title title={CHECKTITLE} />}>
           <CheckStatusResult />
         </Layout>
       </Route>
@@ -83,23 +95,31 @@ const RouterConfig = () => {
 
       <PrivateRoute exact path={LIST}>
         <AdminLayout>
-          <ListHeader />
-          <Divider mt="2.5" />
-          <FormList />
+          <Box h="27rem" overflow="auto" fontFamily="roboto">
+            <Table>
+              <ListHeader />
+              <FormList />
+            </Table>
+          </Box>
         </AdminLayout>
       </PrivateRoute>
 
       <PrivateRoute exact path="/admin/basvuru-listesi/:id">
         <AdminLayout>
-          <Flex cursor="pointer" w="48px" h="48px" onClick={() => history.push('/admin/basvuru-listesi')}>&lt;</Flex>
+          <Flex
+            cursor="pointer"
+            w="48px"
+            h="48px"
+            onClick={() => history.push('/admin/basvuru-listesi')}
+          >
+            &lt;
+          </Flex>
           <Divider mt="2.5" mb="2.5" />
           <Box overflowY="scroll" h="395px">
             <CheckStatusResult />
             <Divider mt="25px" mb="2.5" />
             <AdminResponseForm />
-
           </Box>
-
         </AdminLayout>
       </PrivateRoute>
 
