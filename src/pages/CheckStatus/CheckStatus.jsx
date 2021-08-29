@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import { FormInput, MyButton } from 'components';
@@ -20,7 +21,11 @@ export function CheckStatus() {
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
+    let isActive = true;
     setSchema(checkStatusFormSchema);
+    return () => {
+      isActive = false;
+    };
   }, []);
 
   const [Error, setError] = useState({});
@@ -49,10 +54,15 @@ export function CheckStatus() {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDir="column">
-          <FormInput label="formId" inputTitle="ID" register={register} errors={Error} required />
+          <FormInput
+            label="formId"
+            inputTitle="ID"
+            register={register}
+            errors={Error}
+            required
+          />
 
           <MyButton isLoading={isLoading} text="Check" loadingText="Checking" />
-
         </Flex>
       </form>
     </>

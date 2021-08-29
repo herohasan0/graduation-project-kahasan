@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React, { useState, useEffect } from 'react';
 
 import { Flex, Box } from '@chakra-ui/react';
@@ -23,7 +25,11 @@ export function ApplicationForm() {
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
+    let isActive = true;
     setSchema(applicationFormSchema);
+    return () => {
+      isActive = false;
+    };
   }, []);
 
   const history = useHistory();
@@ -39,13 +45,11 @@ export function ApplicationForm() {
     <Box w="full" data-testid="application-form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDir="column">
-
           <FormInputContainer register={register} errors={errors} />
           <FormSelectContainer register={register} errors={errors} />
           <FormTextAreaContainer register={register} errors={errors} />
 
           <MyButton isLoading={isLoading} text="Send" loadingText="Sending" />
-
         </Flex>
       </form>
     </Box>

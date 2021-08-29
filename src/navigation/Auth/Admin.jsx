@@ -1,11 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 
-import {
-  Box, Center, Image, Heading, Stack,
-} from '@chakra-ui/react';
+import { Box, Center, Image, Heading, Stack } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -23,7 +22,11 @@ export default function Admin() {
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
+    let isActive = true;
     setSchema(loginFormSchema);
+    return () => {
+      isActive = false;
+    };
   }, []);
 
   const [Error, setError] = useState({});
@@ -40,7 +43,8 @@ export default function Admin() {
       if (!user) {
         setError({
           email: {
-            message: 'The email and password you entered did not match our records. Please double-check and try again.',
+            message:
+              'The email and password you entered did not match our records. Please double-check and try again.',
           },
         });
       }
@@ -49,13 +53,7 @@ export default function Admin() {
   };
 
   const Card = (props) => (
-    <Box
-      py="8"
-      px="10"
-      shadow="base"
-      rounded="lg"
-      {...props}
-    />
+    <Box py="8" px="10" shadow="base" rounded="lg" {...props} />
   );
 
   return (
@@ -63,7 +61,13 @@ export default function Admin() {
       <Center onClick={() => history.push({ pathname: '/' })} cursor="pointer">
         <Image src="./assets/images/logo.png" w="3xs" />
       </Center>
-      <Heading fontFamily="body" textAlign="center" size="xl" fontWeight="bold" mt="40px">
+      <Heading
+        fontFamily="body"
+        textAlign="center"
+        size="xl"
+        fontWeight="bold"
+        mt="40px"
+      >
         Sign in to your account
       </Heading>
       <Card mt="20px">
@@ -87,7 +91,6 @@ export default function Admin() {
             />
 
             <MyButton isLoading={isLoading} text="Login" loadingText="Login" />
-
           </Stack>
         </form>
       </Card>
