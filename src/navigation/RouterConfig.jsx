@@ -11,7 +11,7 @@ import {
   Home,
 } from 'pages';
 
-import { Divider, Flex, Box, Table } from '@chakra-ui/react';
+import { Divider, Flex, Box, Table, Text } from '@chakra-ui/react';
 
 import {
   ROOT,
@@ -117,6 +117,9 @@ const RouterConfig = () => {
             onClick={() => history.push('/admin/basvuru-listesi')}
           >
             &lt;
+            <Text as="span" _hover={{ textDecoration: 'underline' }}>
+              Back
+            </Text>
           </Flex>
           <Divider mt="2.5" mb="2.5" />
           <Box
@@ -126,7 +129,7 @@ const RouterConfig = () => {
               '2lg': 'calc(100vh - 26.5rem)',
             }}
           >
-            <CheckStatusResult />
+            <CheckStatusResult noAdminNote />
             <Divider mt="25px" mb="2.5" />
             <AdminResponseForm />
           </Box>
