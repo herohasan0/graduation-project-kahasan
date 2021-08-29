@@ -1,5 +1,7 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable no-undef */
+import React from 'react';
+import { render } from '@testing-library/react';
+import { App } from './App';
 
-test('renders learn react link', () => {});
+test('Component should render.', () => {
+  const { getByTestId } = render(<App />);
+});
