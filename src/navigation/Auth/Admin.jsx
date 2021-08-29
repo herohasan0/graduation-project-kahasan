@@ -23,7 +23,9 @@ export default function Admin() {
 
   useEffect(() => {
     let isActive = true;
-    setSchema(loginFormSchema);
+    if (isActive) {
+      setSchema(loginFormSchema);
+    }
     return () => {
       isActive = false;
     };

@@ -26,7 +26,9 @@ export function ApplicationForm() {
 
   useEffect(() => {
     let isActive = true;
-    setSchema(applicationFormSchema);
+    if (isActive) {
+      setSchema(applicationFormSchema);
+    }
     return () => {
       isActive = false;
     };
