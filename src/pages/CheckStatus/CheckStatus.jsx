@@ -7,7 +7,7 @@ import { Flex } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
 
-import { NOAPPLICATONERROR } from 'CONSTANS';
+import { NOAPPLICATONERROR } from 'config/languages/en';
 
 import { checkStatusSubmit } from 'helpers/Submit';
 

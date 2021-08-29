@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom';
 
 export function CheckStatusResult({ noAdminNote }) {
   const { state } = useLocation();
-  console.log('nonoAdminNote', noAdminNote);
 
   return (
     <>

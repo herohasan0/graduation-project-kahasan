@@ -34,13 +34,14 @@ import {
   AdminResponseForm,
 } from 'components';
 
+import { COVERURL } from 'CONSTANS';
+
 import {
   FORMTITLE,
-  HELPERTEXT,
-  COVERURL,
-  CHECKTITLE,
-  CHECKDESCRIPTION,
-} from 'CONSTANS';
+  FORMHELPERTEXT,
+  CHECKFORMTITLE,
+  CHECKFORMDESCRIPTION,
+} from 'config/languages/en';
 
 import Admin from './Auth/Admin';
 import PrivateRoute from './Auth/PrivateRoute';
@@ -59,7 +60,7 @@ const RouterConfig = () => {
 
       <Route exact path={FORM}>
         <Layout
-          helperText={<HelperText text={HELPERTEXT} />}
+          helperText={<HelperText text={FORMHELPERTEXT} />}
           title={<Title title={FORMTITLE} />}
           imgUrl={COVERURL}
         >
@@ -76,15 +77,15 @@ const RouterConfig = () => {
       <Route exact path={CHECK}>
         <Layout
           imgUrl={COVERURL}
-          title={<Title title={CHECKTITLE} />}
-          helperText={<HelperText text={CHECKDESCRIPTION} />}
+          title={<Title title={CHECKFORMTITLE} />}
+          helperText={<HelperText text={CHECKFORMDESCRIPTION} />}
         >
           <CheckStatus />
         </Layout>
       </Route>
 
       <Route exact path={CHECK_SPECIFIC}>
-        <Layout imgUrl={COVERURL} title={<Title title={CHECKTITLE} />}>
+        <Layout imgUrl={COVERURL} title={<Title title={CHECKFORMTITLE} />}>
           <CheckStatusResult />
         </Layout>
       </Route>

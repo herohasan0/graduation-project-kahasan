@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import firebase from 'services/firebase';
 
-import {
-  Flex, Image, Text,
-} from '@chakra-ui/react';
+import { Flex, Image, Text } from '@chakra-ui/react';
 
 import { sidebarMinWidth } from 'CONSTANS';
 
@@ -15,9 +13,13 @@ export function Logout({ width, black, big }) {
   let src = '/assets/icons/signout.png';
   let boxSize = '21px';
 
-  if (black) { src = '/assets/icons/signout-black.png'; }
+  if (black) {
+    src = '/assets/icons/signout-black.png';
+  }
 
-  if (big) { boxSize = '24px'; }
+  if (big) {
+    boxSize = '1.5rem';
+  }
 
   return (
     <Flex
@@ -32,9 +34,10 @@ export function Logout({ width, black, big }) {
       <Image boxSize={boxSize} src={src} />
 
       {width > sidebarMinWidth && (
-      <Text transition="0.5s" ml="5px">Logout</Text>
+        <Text transition="0.5s" ml="5px">
+          Logout
+        </Text>
       )}
-
     </Flex>
   );
 }

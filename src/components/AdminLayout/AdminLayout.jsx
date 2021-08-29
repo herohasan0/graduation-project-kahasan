@@ -1,10 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Flex, Divider, Box, Image, Text } from '@chakra-ui/react';
+import { Flex, Divider } from '@chakra-ui/react';
+
+import { LIST } from 'navigation/CONSTANTS';
 
 import {
   Sidebar,
@@ -15,7 +14,7 @@ import {
   Logout,
 } from 'components';
 
-import { sidebarMinWidth, sidebarMaxWidth } from 'CONSTANS';
+import { sidebarMinWidth, sidebarMaxWidth, sidebarToggledSize } from 'CONSTANS';
 import {
   getApplicationCount,
   getTotalApplicationCount,
@@ -29,7 +28,7 @@ export function AdminLayout({ children }) {
   const [opened, setIsOpened] = useToggle();
 
   useEffect(() => {
-    if (size.width < 1300) {
+    if (size.width < sidebarToggledSize) {
       setWidth(sidebarMinWidth);
     } else {
       setWidth(sidebarMaxWidth);
@@ -37,7 +36,7 @@ export function AdminLayout({ children }) {
   }, [size]);
 
   useEffect(() => {
-    if (size.width > 1300) {
+    if (size.width > sidebarToggledSize) {
       if (opened) {
         setWidth(sidebarMinWidth);
       } else {
@@ -59,13 +58,12 @@ export function AdminLayout({ children }) {
           title="Forms"
           width={width}
           imgSrc="/assets/icons/file.png"
-          route="/admin/basvuru-listesi"
+          route={LIST}
           selected
         />
         <Logout width={width} />
       </Sidebar>
 
-      {/* Whole screen except sidebar */}
       <Flex flexDir="column" pt="5.55" w="full">
         {/* Header section */}
         <Header title="Forms" />
@@ -124,3 +122,7 @@ export function AdminLayout({ children }) {
     </Flex>
   );
 }
+
+AdminLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};

@@ -1,12 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { FORMINPUTVALUES } from 'CONSTANS';
+import { FORMINPUTVALUES } from 'config/languages/en';
 import { FormInput } from 'components';
 
-export function FormInputContainer({
-  register, errors, disabled, value,
-}) {
-  console.log('value****', value);
+export function FormInputContainer({ register, errors, disabled, value }) {
   return (
     <>
       {FORMINPUTVALUES.map(({ label, inputTitle, id }) => (

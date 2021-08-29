@@ -5,11 +5,11 @@ import { useLocation } from 'react-router-dom';
 import { AlertContainer, SuccessForm } from 'components';
 
 import {
-  ALERTTITLE,
-  ALERTDESCRIPTION,
+  SUBMITTEDALERTTITLE,
+  SUBMITTEDALERTDESCRIPTION,
   ALERTIDMESSAGE,
-  NOTICEMESSAGE,
-} from 'CONSTANS';
+  WARNINGMESSAGE,
+} from 'config/languages/en';
 
 export function SuccessPage() {
   const { state } = useLocation();
@@ -18,11 +18,11 @@ export function SuccessPage() {
     <>
       <AlertContainer
         STATUS="success"
-        ALERTTITLE={ALERTTITLE}
-        ALERTDESCRIPTION={ALERTDESCRIPTION}
+        ALERTTITLE={SUBMITTEDALERTTITLE}
+        ALERTDESCRIPTION={SUBMITTEDALERTDESCRIPTION}
         ALERTIDMESSAGE={ALERTIDMESSAGE}
         id={state.dataid}
-        NOTICEMESSAGE={NOTICEMESSAGE}
+        NOTICEMESSAGE={WARNINGMESSAGE}
       />
 
       <SuccessForm noAdminNote noApplicationStatus formValue={state.data} />

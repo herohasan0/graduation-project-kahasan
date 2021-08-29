@@ -1,16 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { FORMTEXTAREAVALUES } from 'CONSTANS';
+import { FORMTEXTAREAVALUES } from 'config/languages/en';
 import { FormTextArea } from 'components';
 
-export function FormTextAreaContainer({
-  register, errors, disabled, value,
-}) {
+export function FormTextAreaContainer({ register, errors, disabled, value }) {
   return (
     <>
-      {FORMTEXTAREAVALUES.map(({
-        label, inputTitle, helperText, id,
-      }) => (
+      {FORMTEXTAREAVALUES.map(({ label, inputTitle, helperText, id }) => (
         <FormTextArea
           key={id}
           label={label}

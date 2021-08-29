@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { StatusBar } from 'components';
 import ConvertDate from 'helpers/ConvertDate';
 
+import { LIST } from 'navigation/CONSTANTS';
+
 import { Flex, Text, Image, Center, Tr, Td } from '@chakra-ui/react';
 
 export function ListItem({ form }) {
@@ -45,7 +47,7 @@ export function ListItem({ form }) {
             cursor="pointer"
             onClick={() => {
               history.push({
-                pathname: `/admin/basvuru-listesi/${id}`,
+                pathname: `${LIST}/${id}`,
                 state: { result: form, formId: id },
               });
             }}
