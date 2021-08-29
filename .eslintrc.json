@@ -10,7 +10,8 @@
     "object-curly-newline": "off",
     "react/jsx-filename-extension": "off",
     "comma-dangle": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "no-extraneous-dependencies": "off"
  }
 }
 
