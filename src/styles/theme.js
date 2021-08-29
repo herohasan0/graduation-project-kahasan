@@ -1,6 +1,21 @@
 import { extendTheme } from '@chakra-ui/react';
 
+import { createBreakpoints } from '@chakra-ui/theme-tools';
+
+// This is the default breakpoint
+const breakpoints = createBreakpoints({
+  sm: '30em',
+  '2sm': '39.5em',
+  md: '48em',
+  '2md': '55.75em',
+  lg: '62em',
+  '2lg': '68.75em',
+  xl: '80em',
+  '2xl': '96em',
+});
+
 const theme = extendTheme({
+  breakpoints,
   colors: {
     transparent: 'transparent',
     black: '#000',
@@ -37,9 +52,9 @@ const theme = extendTheme({
     max: 'max-content',
     min: 'min-content',
     full: '100%',
-    fullH: '100vh',
-    half: '50%',
-    '3xs': '12.5rem',
+    fullH: '100vh', //
+    half: '50%', //
+    '3xs': '12.5rem', //
     '2xs': '16rem',
     xs: '20rem',
     sm: '24rem',
@@ -121,7 +136,7 @@ const theme = extendTheme({
     3: '0.8125rem',
     3.5: '0.875rem',
     4: '1rem',
-    5: '1.125rem',
+    5: '1.125rem', //
     5.55: '1.25rem',
     5.5: '1.3125rem',
     6: '1.5rem',
@@ -129,7 +144,7 @@ const theme = extendTheme({
     7.5: '1.75rem',
     8: '2rem',
     9: '2.25rem',
-    10: '2.5rem',
+    10: '2.5rem', //
     12: '3rem',
     14: '3.5rem',
     15: '3.75rem',
@@ -138,11 +153,11 @@ const theme = extendTheme({
     24: '6rem',
     28: '7rem',
     32: '8rem',
-    32.5: '8.5rem',
+    32.5: '8.5rem', //
     36: '9rem',
     40: '10rem',
     44: '11rem',
-    48: '12rem',
+    48: '12rem', //
     52: '13rem',
     56: '14rem',
     60: '15rem',
