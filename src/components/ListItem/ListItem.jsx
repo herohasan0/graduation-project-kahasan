@@ -1,56 +1,77 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-import {
-  Flex, Divider, Text, Image, Center, Menu, MenuButton, MenuList, MenuItem,
-} from '@chakra-ui/react';
-
+import { StatusBar } from 'components';
 import ConvertDate from 'helpers/ConvertDate';
 
-import { useHistory } from 'react-router-dom';
-import { StatusBar } from 'components';
+import { Flex, Text, Image, Center, Tr, Td } from '@chakra-ui/react';
 
 export function ListItem({ form }) {
   const history = useHistory();
-  const {
-    firstName, subject, planetOfBirth, status, createdDate, id,
-  } = form;
+
+  const { firstName, subject, planetOfBirth, status, createdDate, id, image } =
+    form;
+
   return (
-    <Flex flexDir="column" pt="4" fontSize="sm" data-testid="list-item">
-      <Flex alignItems="center">
-        <Flex alignItems="center" w="227px">
-          <Image borderRadius="full" w="imageMdx" h="imageMdx" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" />
-          <Text ml="1.5">{firstName}</Text>
-        </Flex>
-        <Text w="275px">{subject}</Text>
-        <Text w="166px">{planetOfBirth}</Text>
+    <>
+      <Tr>
+        <Td>
+          <Flex alignItems="center">
+            <Image
+              borderRadius="full"
+              w="imageMdx"
+              h="imageMdx"
+              src={image || '/assets/icons/profile-sm.png'}
+            />
+            <Text ml="1.5">{firstName}</Text>
+          </Flex>
+        </Td>
 
-        <Flex w="216px">
+        <Td w="275px">{subject}</Td>
+
+        <Td w="166px">{planetOfBirth}</Td>
+
+        <Td>
           <StatusBar status={status} />
-        </Flex>
+        </Td>
 
-        <Text w="193px">{ConvertDate(createdDate.seconds)}</Text>
+        <Td isNumeric w="193px">
+          {ConvertDate(createdDate.seconds)}
+        </Td>
 
-        <Menu>
-          <MenuButton as={Center} cursor="pointer">
-            <Image src="/assets/icons/action.png" w="imageMd" h="imageMd" />
-          </MenuButton>
-          <MenuList>
-            <MenuItem onClick={() => {
+        <Td>
+          <Center
+            cursor="pointer"
+            onClick={() => {
               history.push({
                 pathname: `/admin/basvuru-listesi/${id}`,
                 state: { result: form, formId: id },
               });
             }}
-            >
-              Edit
-
-            </MenuItem>
-          </MenuList>
-        </Menu>
-
-      </Flex>
-      <Divider mt="4" />
-    </Flex>
+          >
+            <Image src="/assets/icons/edit.png" w="imageMd" h="imageMd" />
+          </Center>
+        </Td>
+      </Tr>
+    </>
   );
 }
+
+ListItem.defaultProps = {
+  form: {},
+};
+
+ListItem.propTypes = {
+  form: PropTypes.shape({
+    id: '',
+    firstName: '',
+    subject: '',
+    planetOfBirth: '',
+    status: '',
+    image: '',
+    createdDate: PropTypes.shape({
+      seconds: PropTypes.number,
+    }),
+  }),
+};

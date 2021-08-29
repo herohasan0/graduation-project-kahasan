@@ -1,16 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Flex, Text } from '@chakra-ui/react';
+import { Thead, Tr, Th } from '@chakra-ui/react';
+import { TABLEHEADER } from 'CONSTANS';
+
+const TH = ({ title, isNumeric }) => (
+  <Th fontFamily="Roboto" isNumeric={isNumeric}>
+    {title}
+  </Th>
+);
 
 export function ListHeader() {
   return (
-    <Flex w="full" fontSize="sm" color="gray.title" data-testid="list-header">
-      <Text w="227px">Apply by</Text>
-      <Text w="275px">Subject</Text>
-      <Text w="166px">From</Text>
-      <Text w="216px">Status</Text>
-      <Text w="193px">Create Date</Text>
-      <Text>Action</Text>
-    </Flex>
+    <Thead position="sticky" top="0" backgroundColor="white">
+      <Tr>
+        {TABLEHEADER.map(({ id, title, isNumeric }) => (
+          <TH key={id} title={title} isNumeric={isNumeric}>
+            Apply by
+          </TH>
+        ))}
+      </Tr>
+    </Thead>
   );
 }
+
+TH.propTypes = {
+  title: PropTypes.string.isRequired,
+  isNumeric: PropTypes.bool.isRequired,
+};

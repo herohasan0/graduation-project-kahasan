@@ -1,23 +1,16 @@
 import React from 'react';
 import { ListItem } from 'components';
+import { Tbody } from '@chakra-ui/react';
 import { getForms } from 'services/firestore';
-import { Flex } from '@chakra-ui/react';
 
 export function FormList() {
   const forms = getForms();
 
   return (
     <>
-      <Flex flexDir="column" h="24.375rem" overflowY="scroll" mb="2.5">
-        {
-        forms && forms.map((form) => (
-          <ListItem
-            key={form.id}
-            form={form}
-          />
-        ))
-      }
-      </Flex>
+      <Tbody>
+        {forms && forms.map((form) => <ListItem key={form.id} form={form} />)}
+      </Tbody>
     </>
   );
 }
