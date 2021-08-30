@@ -1,11 +1,7 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import firebase from './firebase';
 
 const db = firebase.firestore();
-
 const formListRef = db.collection('form-list');
 
 export const addData = async (data) => {
@@ -30,7 +26,6 @@ export const addData = async (data) => {
   return id;
 };
 
-// eslint-disable-next-line no-unused-vars
 export const getData = async (formId) => {
   let formData;
   await formListRef

@@ -21,6 +21,8 @@ const HOMEPAGETITLE =
   ' Vogsphere is the coolest planet in the galaxy. On this page, you can apply for citizenship to this beautiful planet or you can check your previous application.';
 const HOMEPAGEDESCRIPTION =
   'If you are an authorized person and looking for an admin page, you can click link below. But if you are not authorized, do not even think about clicking the link.';
+const LOGINERRORMESSAGE =
+  'The username and password you entered did not match our records. Please double-check and try again.';
 const FORMINPUTVALUES = [
   {
     id: '1',
@@ -103,4 +105,5 @@ export {
   PLANETSELECTPLACEHOLDER,
   HOMEPAGETITLE,
   HOMEPAGEDESCRIPTION,
+  LOGINERRORMESSAGE,
 };

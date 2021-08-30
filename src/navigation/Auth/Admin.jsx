@@ -1,24 +1,16 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 
-import { Box, Center, Image, Heading, Stack } from '@chakra-ui/react';
-
 import { useHistory } from 'react-router-dom';
-
 import { FormInput, MyButton } from 'components';
-
 import { adminFormSubmit } from 'helpers/Submit';
-
 import { loginFormSchema } from 'helpers/YupSchema';
-
 import { useFormContext } from 'contexts/formContext';
+import { LOGINERRORMESSAGE } from 'config/languages/en';
+import { Box, Center, Image, Heading, Stack } from '@chakra-ui/react';
 
 export default function Admin() {
   const [isLoading, setIsLoading] = useState(false);
-
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
@@ -39,8 +31,7 @@ export default function Admin() {
       .catch(() => {
         setError({
           email: {
-            message:
-              'The username and password you entered did not match our records. Please double-check and try again.',
+            message: LOGINERRORMESSAGE,
           },
         });
       })
