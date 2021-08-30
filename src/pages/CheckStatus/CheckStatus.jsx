@@ -62,7 +62,12 @@ export function CheckStatus() {
             required
           />
 
-          <MyButton isLoading={isLoading} text="Check" loadingText="Checking" />
+          <MyButton
+            marginTop="24"
+            isLoading={isLoading}
+            text="Check"
+            loadingText="Checking"
+          />
         </Flex>
       </form>
     </>

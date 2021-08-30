@@ -3,11 +3,11 @@ import React from 'react';
 
 import { Button } from '@chakra-ui/react';
 
-export function MyButton({ text, loadingText, isLoading, onClick }) {
+export function MyButton({ text, loadingText, isLoading, onClick, marginTop }) {
   return (
     <Button
       onClick={onClick}
-      mt={24}
+      mt={marginTop}
       isLoading={isLoading}
       loadingText={loadingText}
       colorScheme="black"
@@ -17,7 +17,6 @@ export function MyButton({ text, loadingText, isLoading, onClick }) {
       size="lg"
       fontSize="md"
       data-testid="mybutton"
-
     >
       {text}
     </Button>

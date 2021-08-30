@@ -92,7 +92,12 @@ export default function Admin() {
               required
             />
 
-            <MyButton isLoading={isLoading} text="Login" loadingText="Login" />
+            <MyButton
+              marginTop="24"
+              isLoading={isLoading}
+              text="Login"
+              loadingText="Login"
+            />
           </Stack>
         </form>
       </Card>

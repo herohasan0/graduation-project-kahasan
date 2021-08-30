@@ -51,7 +51,12 @@ export function ApplicationForm() {
           <FormSelectContainer register={register} errors={errors} />
           <FormTextAreaContainer register={register} errors={errors} />
 
-          <MyButton isLoading={isLoading} text="Send" loadingText="Sending" />
+          <MyButton
+            marginTop="24"
+            isLoading={isLoading}
+            text="Send"
+            loadingText="Sending"
+          />
         </Flex>
       </form>
     </Box>

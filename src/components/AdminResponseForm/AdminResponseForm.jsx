@@ -60,7 +60,7 @@ export function AdminResponseForm() {
             <option value="Cancelled">Cancelled</option>
           </FormSelect>
 
-          <MyButton isLoading={isLoading} text="Send" loadingText="Sending" />
+          <MyButton marginTop="24" isLoading={isLoading} text="Send" loadingText="Sending" />
         </Flex>
       </form>
     </Box>
