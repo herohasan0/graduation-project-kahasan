@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { FormInput, MyButton } from 'components';
 
-import { Flex } from '@chakra-ui/react';
+import { Flex, chakra } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -52,7 +52,7 @@ export function CheckStatus() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <chakra.form w="full" onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDir="column">
           <FormInput
             label="formId"
@@ -69,7 +69,7 @@ export function CheckStatus() {
             loadingText="Checking"
           />
         </Flex>
-      </form>
+      </chakra.form>
     </>
   );
 }

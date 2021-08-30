@@ -10,7 +10,6 @@ export function Layout({ imgUrl, children, title, helperText }) {
   return (
     <Flex data-testid="layout">
       <Flex
-        h="760px"
         overflowY="scroll"
         w={{ base: 'full', lg: 'half' }}
         px={{ base: '20px', md: '140px', lg: '32.5' }}
