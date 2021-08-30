@@ -5,14 +5,7 @@ import { Flex, Divider } from '@chakra-ui/react';
 
 import { LIST } from 'navigation/CONSTANTS';
 
-import {
-  Sidebar,
-  SideBarItem,
-  StatusCard,
-  Header,
-  LinkSection,
-  Logout,
-} from 'components';
+import { Sidebar, SideBarItem, StatusCard, Header, Logout } from 'components';
 
 import { sidebarMinWidth, sidebarMaxWidth, sidebarToggledSize } from 'CONSTANS';
 import {
@@ -68,7 +61,6 @@ export function AdminLayout({ children }) {
         {/* Header section */}
         <Header title="Forms" />
         <Divider mt="5.55" />
-        <LinkSection />
 
         <Flex
           h="100vh"

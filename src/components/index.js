@@ -16,7 +16,6 @@ export * from './FormTextArea';
 export * from './AdminResponseForm';
 export * from './SideBarItem';
 export * from './Header';
-export * from './LinkSection';
 export * from './StatusCard';
 export * from './AlertContainer';
 export * from './FormInputContainer';
