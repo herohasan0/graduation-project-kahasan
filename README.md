@@ -10,12 +10,16 @@
 
 ## Some Screen From App
 
+  <div>
   <img src="public/assets/screenshots/laptop-01.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  <img src="public/assets/screenshots/laptop-07.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  </div>
+  <div>
   <img src="public/assets/screenshots/mobile-01.png" alt="vogsphere screens" title="vogsphere screens" height="300">
   <img src="public/assets/screenshots/mobile-03.png" alt="vogsphere screens" title="vogsphere screens" height="300">
   <img src="public/assets/screenshots/mobile-04.png" alt="vogsphere screens" title="vogsphere screens" height="300">
-  <img src="public/assets/screenshots/laptop-07.png" alt="vogsphere screens" title="vogsphere screens" height="300">
   <img src="public/assets/screenshots/mobile-05.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  </div>
 
 ## Installation
 
