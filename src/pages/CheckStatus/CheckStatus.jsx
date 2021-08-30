@@ -1,28 +1,22 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
-import { FormInput, MyButton } from 'components';
-
-import { Flex, chakra } from '@chakra-ui/react';
 
 import { useHistory } from 'react-router-dom';
-
-import { NOAPPLICATONERROR } from 'config/languages/en';
-
+import { Flex, chakra } from '@chakra-ui/react';
+import { FormInput, MyButton } from 'components';
 import { checkStatusSubmit } from 'helpers/Submit';
-
 import { useFormContext } from 'contexts/formContext';
-
+import { NOAPPLICATONERROR } from 'config/languages/en';
 import { checkStatusFormSchema } from 'helpers/YupSchema';
 
 export function CheckStatus() {
   const [isLoading, setIsLoading] = useState(false);
-
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
     let isActive = true;
-    setSchema(checkStatusFormSchema);
+    if (isActive) {
+      setSchema(checkStatusFormSchema);
+    }
     return () => {
       isActive = false;
     };

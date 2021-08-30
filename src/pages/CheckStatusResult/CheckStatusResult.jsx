@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { SuccessForm } from 'components';
-
 import { useLocation } from 'react-router-dom';
 
 export function CheckStatusResult({ noAdminNote }) {
@@ -13,3 +12,11 @@ export function CheckStatusResult({ noAdminNote }) {
     </>
   );
 }
+
+CheckStatusResult.defaultProps = {
+  noAdminNote: undefined,
+};
+
+CheckStatusResult.propTypes = {
+  noAdminNote: PropTypes.bool,
+};

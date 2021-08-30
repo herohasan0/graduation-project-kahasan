@@ -1,7 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-
 import { AlertContainer, SuccessForm } from 'components';
 
 import {
