@@ -41,17 +41,16 @@ export default function Admin() {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    adminFormSubmit(data.email, data.password, history).then((user) => {
-      if (!user) {
+    adminFormSubmit(`${data.username}@kodluyoruz.com`, data.password, history)
+      .catch(() => {
         setError({
-          email: {
+          username: {
             message:
-              'The email and password you entered did not match our records. Please double-check and try again.',
+              'The username and password you entered did not match our records. Please double-check and try again.',
           },
         });
-      }
-      setIsLoading(false);
-    });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const Card = (props) => (
@@ -77,8 +76,8 @@ export default function Admin() {
           <Stack spacing="6">
             <FormInput
               type="text"
-              label="email"
-              inputTitle="Email"
+              label="username"
+              inputTitle="Username"
               register={register}
               errors={Error}
               required

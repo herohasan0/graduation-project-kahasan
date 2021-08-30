@@ -16,7 +16,7 @@ export const adminResponseFormSchema = yup.object().shape({
 });
 
 export const loginFormSchema = yup.object().shape({
-  email: yup.string().required(),
+  username: yup.string().required(),
   password: yup.string().required(),
 });
 
