@@ -61,7 +61,9 @@ export function AdminLayout({ children }) {
         <Divider mt="5.55" />
 
         <Flex
-          h="100vh"
+          // h="100vh"
+          h={{ '2lg': 'calc(100vh - 6rem)' }}
+          pb={{ base: '100px', '2lg': '0' }}
           backgroundColor="gray.background_1"
           px="6"
           flexDir="column"

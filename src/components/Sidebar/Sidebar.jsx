@@ -6,7 +6,7 @@ import { chakra, Flex, Image, Text, Box } from '@chakra-ui/react';
 export function SidebarContext({ children, navTitle, handleWidth, width }) {
   return (
     <Flex
-      display={{ base: 'none', '2md': 'block' }}
+      display={{ base: 'none', '2lg': 'block' }}
       data-testid="sidebar"
       transition="0.5s"
       flexDir="column"

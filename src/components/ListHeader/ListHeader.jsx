@@ -15,7 +15,7 @@ export function ListHeader() {
         <TH title="Apply by" />
         <TH title="Subject" display={{ base: 'none', lg: 'table-cell' }} />
         <TH title="From" display={{ base: 'none', '2sm': 'table-cell' }} />
-        <TH title="Status" />
+        <TH title="Status" display={{ base: 'none', sm: 'table-cell' }} />
         <TH
           title="Create Date"
           isNumeric
