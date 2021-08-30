@@ -1,70 +1,88 @@
-## Bitirme projesi
-### Başvuru / ticket yönetim sistemi
+<h1 align="center">
+  <img src="public/assets/images/logo.png" alt="vogsphere logo" title="vogsphere logo" width="200">
+  <br>
+</h1>
+<p align="center" style="font-size: 1.2rem;">This is an app that you can apply for citizenship to our planet. You can also check your application status in the same app. And there is an admin panel in the app. We will view your application in this panel.  </p>
 
+> [Live Link 💗](https://planetofvogsphere.vercel.app) |
+> [Design files](https://www.figma.com/file/1z4r5NnzzEKMgGp3SdXcEA/Vogsphere?node-id=0%3A1) |
+> [More info about Vogsphere](https://scifi.fandom.com/wiki/Vogsphere)
 
-#### Genel Açıklama
+## Some Screen From App
 
-Uygulamamız herkese açık bir başvuru formunun son kullanıcı tarafından doldurulması ile başlıyor. 
-Formu dolduran kullanıcıya başvurusunu takip edebilecegi bir kod veriliyor. Kullanıcı başvuru durumu sayfasından bu kod ile başvurusunun çözülüp çözülemedigini kontrol edebiliyor. 
+  <img src="public/assets/screenshots/laptop-01.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  <img src="public/assets/screenshots/mobile-01.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  <img src="public/assets/screenshots/mobile-03.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  <img src="public/assets/screenshots/mobile-04.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  <img src="public/assets/screenshots/laptop-07.png" alt="vogsphere screens" title="vogsphere screens" height="300">
+  <img src="public/assets/screenshots/mobile-05.png" alt="vogsphere screens" title="vogsphere screens" height="300">
 
-Kullanıcı adı ve şifre ile girilebilen bir ekrandan da yetkili kullanıcılar gelen başvuruları görüntüleyebiliyor cevaplanmamış başvurulara cevap yazıp durumunu çözüldü / iptal edildi / bekliyor vb gibi güncelleyebiliyor. Gerekirse eski kayıtlara ulaşabiliyor.
+## Installation
 
+- Clone the the repo.
+- Install the dependencies.
+- Run `yarn run start`.
+- You need a firebase project. Create a project [here](https://firebase.google.com)
+- After create a project, create a .env file like this
+- `REACT_APP_FB_API_KEY="api key"`
+- `REACT_APP_FB_AUTH_DOMAIN="auth domain"`
+- `REACT_APP_FB_PROJECT_ID="project id"`
+- `REACT_APP_FB_STORAGE_BUCKET="storage bucket"`
+- `REACT_APP_FB_MESSAGING_SENDER_ID="messagigng sender id"`
+- `REACT_APP_FB_APP_ID="app id"`
+- `REACT_APP_FB_MEASUREMENT_ID="measurement id"`
+- Do no forget the firesbase edit rules.
+- In your firebase database > rules > add this line `allow read, write: if true;`
 
-#### Detaylı Açıklama
+## Usage
 
+- You can easily create an application.
+- If you want to login admin page use these:
+- username `kodluyoruz@kodluyoruz.com`
+- password `bootcamp109`
 
-##### Routes / Paths
+## Folder Structure
 
-- /basvuru-olustur (default)
-  - Public endpoint.
-  - Başvuru formunu herhangi bir kullanıcının doldurmasına imkan verir.
-  - Başvuru formunda [Ad, Soyad, Yaş, TC, Başvuru Nedeni, Adres Bilgisi, Fotograflar/Ekler, Gonder] butonu yer alır. 
+```
+src
+┣ components
+┃ ┣ App
+┃   ┣ App.jsx
+┃   ┣ App.css
+┃   ┣ App.test.js
+┃   ┣ index.jsx
+┣ config
+┣ contexts
+┣ helpers
+┣ hooks
+┣ navigation
+┣ pages
+┣ services
+┣ styles
+```
 
-- /basvuru-basarili (Basvuru formu doldurulduktan sonra gelen sayfa)
-  - Ekranda bir teşekkür mesajı yer alır ve kullanıcıya başvuru detayları ile birlikte başvuru kodu verilir.
+- All components are in the components folder.
+- There is a `index.js` file in the components folder. And exported all components in this file. Like this:
+- `export * from './App';`
+- `export * from './Cover';`
+- `export * from './HelperText';`
+- `export * from './Sidebar';`
+- After this index file you can import components like this
+- `import { App, Cover, HelperText } from 'components'`
 
-- /basvuru-sorgula
-  - Ekranda başvuru kodu girilebilen bir input ve sorgula butonu vardır.
+## Hooks
 
-- /basvuru/{basvuruNo}
-  - Ekranda başvuru varsa bilgileri, son durumu ve verilen cevap(lar) yer alır.
-  - Başvuru numarası hatalıysa 404(bulunamadı) mesajı çıkar.
+- useToggle
+  > It takes a parameter with value true or false and toggles that value to opposite. I used this toggle open and close navigation sidebar.
+- useWindowSize
+  > For to get the current size of the browser window. Used for close sidebar in a condition.
 
-- /admin
-  - Ekranda kullanıcı giriş formu vardır. (Rahat test edebilmemiz için u:kodluyoruz, p:bootcamp109 bilgileri ile giriş yapabilmeliyim.)
+## Tech Stack
 
-- /admin/basvuru-listesi
-  - Başarıli giriş sonrası bekleyen (çözülmemiş/cevaplanmamış) başvuruların listesi yer alır ve basit bilgiler sunar. (Başvuru yapan, tarih)
-  - Başvuru listesinde her elemenda başvuruyu görüntüle butonu vardır.
-
-- /admin/basvuru/{basvuruNo}
-  - Başvurunun durumu güncellenebilir ve başvuruya cevap yazılabilir.
-  - Burada yazılan cevap son kullanıci tarafından basvuru/{basvuruNo} kısmından görüntülenebilmelidir.
-  
-
-
-##### Gereklilikler
-
-- React hooks
-- Router (react-router/ reach router / etc)
-- Context API
-- Form management library (react-hook-form(önerilen) / formik / etc)
-- Validation library (yup(önerilen), joi, etc)
-- Tests (Unit test zorunlu, e2e opsiyonel)
-- Uygulamanız kesinlikle bir servise deploy edilmiş olacak ve public link readme içinde yer alacak (netlify, vercel gibi)
-- Open source
-- Eslint
-
-
-##### Dikkat edelim
-- Tüm formlarda gerekli validasyonlar olsun.
-- Back-end yazmak zorunda degilsiniz, back-end olarak firebase ya da mock bir api kullanabilirsiniz.
-- Elinizden gelen en iyi şekilde seperation of concerns'e dikkat ederek yazın.
-- Admin paneline u:kodluyoruz, p:bootcamp109 bilgileri ile giriş yapabilmeliyim.
-- Mümkünse admin paneline bir menü ekleyelim (başvuru listesi, çıkıs gibi işlemleri kapsasın)
-
-##### Bonus (Zorunlu degil, deneysel ozellikler)
-- Typescript 
-- Service worker ile offline render destegi
-- Mobil uyumlulu guzel bir tasarim
-- Kullanilabilir UX
+- Starter Kit - [create react app](https://create-react-app.dev)
+- Component Library - [chakra-ui](https://chakra-ui.com)
+- Form - [react-hook-form](https://react-hook-form.com)
+- Validation - [yup](https://github.com/jquense/yup)
+- Eslint - [airbnb config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
+- Test - [react testing library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Firebase](https://firebase.google.com)
