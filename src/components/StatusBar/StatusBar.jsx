@@ -30,6 +30,10 @@ export function StatusBar({ status }) {
   );
 }
 
+StatusBar.defaultProps = {
+  status: '',
+};
+
 StatusBar.propTypes = {
-  status: PropTypes.string.isRequired,
+  status: PropTypes.string,
 };

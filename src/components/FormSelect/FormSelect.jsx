@@ -66,7 +66,7 @@ FormSelect.defaultProps = {
   register: () => {},
   disabled: false,
   value: undefined,
-  children: {},
+  children: undefined,
 };
 
 FormSelect.propTypes = {
