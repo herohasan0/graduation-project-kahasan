@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import firebase from 'services/firebase';
-
-import { Flex, Image, Text } from '@chakra-ui/react';
-
 import { sidebarMinWidth } from 'CONSTANS';
+import { Flex, Image, Text } from '@chakra-ui/react';
 
 export function Logout({ width, black, big }) {
   const signout = () => firebase.auth().signOut();

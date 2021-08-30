@@ -1,8 +1,6 @@
 import React from 'react';
-
-import { Flex, Text, Image } from '@chakra-ui/react';
-
 import PropTypes from 'prop-types';
+import { Flex, Text, Image } from '@chakra-ui/react';
 
 export function StatusCard({ imgSrc, status, count, display }) {
   return (

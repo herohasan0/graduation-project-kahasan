@@ -48,15 +48,18 @@ export function AlertContainer({
 }
 
 AlertContainer.defaultProps = {
+  STATUS: '',
+  ALERTTITLE: '',
+  ALERTDESCRIPTION: '',
   ALERTIDMESSAGE: '',
   id: '',
   NOTICEMESSAGE: '',
 };
 
 AlertContainer.propTypes = {
-  STATUS: PropTypes.string.isRequired,
-  ALERTTITLE: PropTypes.string.isRequired,
-  ALERTDESCRIPTION: PropTypes.string.isRequired,
+  STATUS: PropTypes.string,
+  ALERTTITLE: PropTypes.string,
+  ALERTDESCRIPTION: PropTypes.string,
   ALERTIDMESSAGE: PropTypes.string,
   id: PropTypes.string,
   NOTICEMESSAGE: PropTypes.string,

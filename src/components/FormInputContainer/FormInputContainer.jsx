@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { FORMINPUTVALUES } from 'config/languages/en';
+import PropTypes from 'prop-types';
 import { FormInput } from 'components';
+import { FORMINPUTVALUES } from 'config/languages/en';
 
 export function FormInputContainer({ register, errors, disabled, value }) {
   return (
@@ -21,3 +21,17 @@ export function FormInputContainer({ register, errors, disabled, value }) {
     </>
   );
 }
+
+FormInputContainer.defaultProps = {
+  errors: {},
+  register: () => {},
+  value: undefined,
+  disabled: false,
+};
+
+FormInputContainer.propTypes = {
+  register: PropTypes.func,
+  errors: PropTypes.shape({}),
+  disabled: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.any]),
+};

@@ -1,8 +1,6 @@
 import React from 'react';
-
-import { Center, Text } from '@chakra-ui/react';
-
 import PropTypes from 'prop-types';
+import { Center, Text } from '@chakra-ui/react';
 
 export function StatusBar({ status }) {
   let color;

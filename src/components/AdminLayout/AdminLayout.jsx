@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Flex, Divider } from '@chakra-ui/react';
-
+import { useToggle } from 'hooks/useToggle';
 import { LIST } from 'navigation/CONSTANTS';
-
+import { Flex, Divider } from '@chakra-ui/react';
+import { useWindowSize } from 'hooks/useWindowSize';
 import { Sidebar, SideBarItem, StatusCard, Header, Logout } from 'components';
-
 import { sidebarMinWidth, sidebarMaxWidth, sidebarToggledSize } from 'CONSTANS';
+
 import {
   getApplicationCount,
   getTotalApplicationCount,
 } from 'services/firestore';
-import { useToggle } from 'hooks/useToggle';
-import { useWindowSize } from 'hooks/useWindowSize';
 
 export function AdminLayout({ children }) {
   const size = useWindowSize();

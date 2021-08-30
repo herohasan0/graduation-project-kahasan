@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { FORMTEXTAREAVALUES } from 'config/languages/en';
+import PropTypes from 'prop-types';
 import { FormTextArea } from 'components';
+import { FORMTEXTAREAVALUES } from 'config/languages/en';
 
 export function FormTextAreaContainer({ register, errors, disabled, value }) {
+  console.log('value-----', value);
   return (
     <>
       {FORMTEXTAREAVALUES.map(({ label, inputTitle, helperText, id }) => (
@@ -22,3 +24,17 @@ export function FormTextAreaContainer({ register, errors, disabled, value }) {
     </>
   );
 }
+
+FormTextAreaContainer.defaultProps = {
+  errors: {},
+  register: () => {},
+  value: undefined,
+  disabled: false,
+};
+
+FormTextAreaContainer.propTypes = {
+  register: PropTypes.func,
+  errors: PropTypes.shape({}),
+  value: PropTypes.oneOfType([PropTypes.any]),
+  disabled: PropTypes.bool,
+};

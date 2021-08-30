@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Thead, Tr, Th } from '@chakra-ui/react';
 
 const TH = ({ title, isNumeric, display }) => (

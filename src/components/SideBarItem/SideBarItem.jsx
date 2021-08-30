@@ -1,17 +1,9 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import { sidebarMinWidth } from 'CONSTANS';
 import { Flex, Image, Text, Link } from '@chakra-ui/react';
 
-import { sidebarMinWidth } from 'CONSTANS';
-
-import PropTypes from 'prop-types';
-
-export function SideBarItemContext({
-  title, width, route, imgSrc, selected,
-}) {
-  console.log('***SidebarItem rendered***');
-
+export function SideBarItemContext({ title, width, route, imgSrc, selected }) {
   return (
     <Link to={route}>
       <Flex
@@ -25,7 +17,9 @@ export function SideBarItemContext({
       >
         <Image w="21px" h="21px" src={imgSrc} />
         {width > sidebarMinWidth && (
-        <Text transition="0.5s" ml="5px">{title}</Text>
+          <Text transition="0.5s" ml="5px">
+            {title}
+          </Text>
         )}
       </Flex>
     </Link>
@@ -34,9 +28,14 @@ export function SideBarItemContext({
 
 export const SideBarItem = React.memo(SideBarItemContext);
 
+SideBarItemContext.defaultProps = {
+  selected: undefined,
+};
+
 SideBarItemContext.propTypes = {
   title: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   route: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
 };

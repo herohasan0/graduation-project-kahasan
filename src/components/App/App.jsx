@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 
-// ROUTER
 import { BrowserRouter } from 'react-router-dom';
 import RouterConfig from 'navigation/RouterConfig';
 import { AuthProvider } from 'contexts/authContext';

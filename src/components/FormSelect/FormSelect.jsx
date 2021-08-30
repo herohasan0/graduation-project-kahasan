@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -65,6 +64,9 @@ FormSelect.defaultProps = {
   placeholder: '',
   helperText: '',
   register: () => {},
+  disabled: false,
+  value: undefined,
+  children: {},
 };
 
 FormSelect.propTypes = {
@@ -75,4 +77,7 @@ FormSelect.propTypes = {
   errors: PropTypes.shape({}),
   placeholder: PropTypes.string,
   helperText: PropTypes.string,
+  disabled: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  children: PropTypes.node,
 };

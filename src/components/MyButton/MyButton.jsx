@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { Button } from '@chakra-ui/react';
 
 export function MyButton({ text, loadingText, isLoading, onClick, marginTop }) {
@@ -22,3 +21,19 @@ export function MyButton({ text, loadingText, isLoading, onClick, marginTop }) {
     </Button>
   );
 }
+
+MyButton.defaultProps = {
+  text: '',
+  loadingText: '',
+  isLoading: false,
+  onClick: undefined,
+  marginTop: '',
+};
+
+MyButton.propTypes = {
+  text: PropTypes.string,
+  loadingText: PropTypes.string,
+  isLoading: PropTypes.bool,
+  onClick: PropTypes.func,
+  marginTop: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+};

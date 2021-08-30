@@ -1,15 +1,9 @@
-/* eslint-disable global-require */
-/* eslint-disable react/prop-types */
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import { sidebarMinWidth } from 'CONSTANS';
 import { chakra, Flex, Image, Text, Box } from '@chakra-ui/react';
 
-import PropTypes from 'prop-types';
-
-import { sidebarMinWidth } from 'CONSTANS';
-
 export function SidebarContext({ children, navTitle, handleWidth, width }) {
-  console.log('***Sidebar rendered***');
   return (
     <Flex
       display={{ base: 'none', '2md': 'block' }}
@@ -36,7 +30,14 @@ export function SidebarContext({ children, navTitle, handleWidth, width }) {
 
 export const Sidebar = React.memo(SidebarContext);
 
+SidebarContext.defaultProps = {
+  width: '',
+  handleWidth: undefined,
+};
+
 SidebarContext.propTypes = {
   children: PropTypes.node.isRequired,
   navTitle: PropTypes.string.isRequired,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  handleWidth: PropTypes.func,
 };

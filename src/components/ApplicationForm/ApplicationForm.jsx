@@ -1,14 +1,10 @@
-/* eslint-disable no-unused-vars */
-
 import React, { useState, useEffect } from 'react';
 
-import { Flex, Box } from '@chakra-ui/react';
-
-import { useHistory } from 'react-router-dom';
-
-import { applicationFormSchema } from 'helpers/YupSchema';
-
 import { submitForm } from 'helpers/Submit';
+import { Flex, Box } from '@chakra-ui/react';
+import { useHistory } from 'react-router-dom';
+import { useFormContext } from 'contexts/formContext';
+import { applicationFormSchema } from 'helpers/YupSchema';
 
 import {
   FormTextAreaContainer,
@@ -17,11 +13,8 @@ import {
   MyButton,
 } from 'components';
 
-import { useFormContext } from 'contexts/formContext';
-
 export function ApplicationForm() {
   const [isLoading, setIsLoading] = useState(false);
-
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {

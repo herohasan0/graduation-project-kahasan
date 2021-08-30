@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   PLANETS,
   PLANETSELECTHELPERTEXT,
@@ -31,3 +31,17 @@ export function FormSelectContainer({ register, errors, disabled, value }) {
     </>
   );
 }
+
+FormSelectContainer.defaultProps = {
+  errors: {},
+  register: () => {},
+  disabled: false,
+  value: undefined,
+};
+
+FormSelectContainer.propTypes = {
+  register: PropTypes.func,
+  errors: PropTypes.shape({}),
+  disabled: PropTypes.bool,
+  value: PropTypes.oneOfType([PropTypes.any]),
+};

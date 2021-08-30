@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { Flex, Image, Box } from '@chakra-ui/react';
 import { Cover } from 'components';
-
 import { useHistory } from 'react-router-dom';
+import { Flex, Image, Box } from '@chakra-ui/react';
 
 export function Layout({ imgUrl, children, title, helperText }) {
   const history = useHistory();

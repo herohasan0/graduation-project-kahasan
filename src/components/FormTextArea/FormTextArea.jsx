@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -63,6 +62,8 @@ FormTextArea.defaultProps = {
   placeholder: '',
   helperText: '',
   register: () => {},
+  value: undefined,
+  disabled: false,
 };
 
 FormTextArea.propTypes = {
@@ -73,4 +74,6 @@ FormTextArea.propTypes = {
   errors: PropTypes.shape({}),
   placeholder: PropTypes.string,
   helperText: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  disabled: PropTypes.bool,
 };

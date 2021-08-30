@@ -1,20 +1,14 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 
 import { Flex, Box } from '@chakra-ui/react';
-
-import { useHistory, useLocation } from 'react-router-dom';
-
-import { FormTextArea, FormSelect, MyButton } from 'components';
 import { updateFormSubmit } from 'helpers/Submit';
-
-import { adminResponseFormSchema } from 'helpers/YupSchema';
-
 import { useFormContext } from 'contexts/formContext';
+import { useHistory, useLocation } from 'react-router-dom';
+import { adminResponseFormSchema } from 'helpers/YupSchema';
+import { FormTextArea, FormSelect, MyButton } from 'components';
 
 export function AdminResponseForm() {
   const [isLoading, setIsLoading] = useState(false);
-
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
@@ -60,7 +54,12 @@ export function AdminResponseForm() {
             <option value="Cancelled">Cancelled</option>
           </FormSelect>
 
-          <MyButton marginTop="24" isLoading={isLoading} text="Send" loadingText="Sending" />
+          <MyButton
+            marginTop="24"
+            isLoading={isLoading}
+            text="Send"
+            loadingText="Sending"
+          />
         </Flex>
       </form>
     </Box>

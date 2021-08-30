@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -24,7 +23,11 @@ export function FormInput({
 }) {
   return (
     <>
-      <FormControl isInvalid={errors[`${label}`]} mt={7} data-testid="form-input-container">
+      <FormControl
+        isInvalid={errors[`${label}`]}
+        mt={7}
+        data-testid="form-input-container"
+      >
         <FormLabel htmlFor={label}>{inputTitle}</FormLabel>
         <Input
           data-testid="form-input"
@@ -61,6 +64,8 @@ FormInput.defaultProps = {
   errors: {},
   helperText: '',
   register: () => {},
+  value: undefined,
+  disabled: false,
 };
 
 FormInput.propTypes = {
@@ -70,4 +75,6 @@ FormInput.propTypes = {
   required: PropTypes.bool,
   errors: PropTypes.shape({}),
   helperText: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  disabled: PropTypes.bool,
 };
