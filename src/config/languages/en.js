@@ -17,6 +17,10 @@ const REASONTOAPPLYHELPERTEXT =
   'You should be honest, otherwise, we will cancel your application.';
 const PLANETSELECTTITLE = 'Planet of Birth';
 const PLANETSELECTPLACEHOLDER = 'Select a planet';
+const HOMEPAGETITLE =
+  ' Vogsphere is the coolest planet in the galaxy. On this page, you can apply for citizenship to this beautiful planet or you can check your previous application.';
+const HOMEPAGEDESCRIPTION =
+  'If you are an authorized person and looking for an admin page, you can click link below. But if you are not authorized, do not even think about clicking the link.';
 const FORMINPUTVALUES = [
   {
     id: '1',
@@ -97,4 +101,6 @@ export {
   PLANETS,
   PLANETSELECTTITLE,
   PLANETSELECTPLACEHOLDER,
+  HOMEPAGETITLE,
+  HOMEPAGEDESCRIPTION,
 };
