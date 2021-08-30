@@ -31,7 +31,7 @@ export function StatusCard({ imgSrc, status, count, display }) {
 }
 
 StatusCard.defaultProps = {
-  display: {},
+  display: { base: 'flex' },
   count: 0,
 };
 

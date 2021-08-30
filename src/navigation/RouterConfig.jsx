@@ -97,7 +97,7 @@ const RouterConfig = () => {
       <PrivateRoute exact path={LIST}>
         <AdminLayout>
           <Box
-            h={{ base: 'calc(100vh - 18rem)', '2lg': 'calc(100vh - 22rem)' }}
+            h={{ base: 'calc(100vh - 17.5rem)', '2lg': 'calc(100vh - 18rem)' }}
             overflow="auto"
             fontFamily="roboto"
           >
@@ -126,8 +126,7 @@ const RouterConfig = () => {
           <Box
             overflowY="scroll"
             h={{
-              base: 'calc(100vh - 21.5rem)',
-              '2lg': 'calc(100vh - 26.5rem)',
+              base: 'calc(100vh - 22rem)',
             }}
           >
             <CheckStatusResult noAdminNote />
