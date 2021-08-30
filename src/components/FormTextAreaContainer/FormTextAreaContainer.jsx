@@ -5,7 +5,6 @@ import { FormTextArea } from 'components';
 import { FORMTEXTAREAVALUES } from 'config/languages/en';
 
 export function FormTextAreaContainer({ register, errors, disabled, value }) {
-  console.log('value-----', value);
   return (
     <>
       {FORMTEXTAREAVALUES.map(({ label, inputTitle, helperText, id }) => (

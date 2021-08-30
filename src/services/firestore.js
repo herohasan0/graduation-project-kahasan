@@ -42,9 +42,6 @@ export const getData = async (formId) => {
       } else {
         formData = '';
       }
-    })
-    .catch((error) => {
-      console.log('Error getting document:', error);
     });
   return formData;
 };
@@ -57,12 +54,7 @@ export const getUser = async (email, password) => {
     .signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const { user } = userCredential;
-      console.log('user', user);
       userInfo = user;
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      console.log('errorMessage', errorMessage);
     });
 
   return userInfo;

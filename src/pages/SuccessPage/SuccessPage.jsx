@@ -13,7 +13,6 @@ import {
 
 export function SuccessPage() {
   const { state } = useLocation();
-  console.log('state', state);
   return (
     <>
       <AlertContainer
