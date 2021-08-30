@@ -13,13 +13,7 @@ export function CheckStatus() {
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
-    let isActive = true;
-    if (isActive) {
-      setSchema(checkStatusFormSchema);
-    }
-    return () => {
-      isActive = false;
-    };
+    setSchema(checkStatusFormSchema);
   }, []);
 
   const [Error, setError] = useState({});

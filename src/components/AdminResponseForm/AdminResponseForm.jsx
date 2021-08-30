@@ -12,13 +12,7 @@ export function AdminResponseForm() {
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
-    let isActive = true;
-    if (isActive) {
-      setSchema(adminResponseFormSchema);
-    }
-    return () => {
-      isActive = false;
-    };
+    setSchema(adminResponseFormSchema);
   }, []);
 
   const history = useHistory();

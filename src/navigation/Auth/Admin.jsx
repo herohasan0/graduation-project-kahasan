@@ -22,13 +22,7 @@ export default function Admin() {
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
-    let isActive = true;
-    if (isActive) {
-      setSchema(loginFormSchema);
-    }
-    return () => {
-      isActive = false;
-    };
+    setSchema(loginFormSchema);
   }, []);
 
   const [Error, setError] = useState({});
@@ -41,10 +35,10 @@ export default function Admin() {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    adminFormSubmit(`${data.username}@kodluyoruz.com`, data.password, history)
+    adminFormSubmit(data.email, data.password, history)
       .catch(() => {
         setError({
-          username: {
+          email: {
             message:
               'The username and password you entered did not match our records. Please double-check and try again.',
           },
@@ -76,11 +70,12 @@ export default function Admin() {
           <Stack spacing="6">
             <FormInput
               type="text"
-              label="username"
-              inputTitle="Username"
+              label="email"
+              inputTitle="Email"
               register={register}
               errors={Error}
               required
+              helperText="Try: kodluyoruz@kodluyoruz.com"
             />
             <FormInput
               type="password"
@@ -89,6 +84,7 @@ export default function Admin() {
               register={register}
               errors={errors}
               required
+              helperText="Try: bootcamp109"
             />
 
             <MyButton

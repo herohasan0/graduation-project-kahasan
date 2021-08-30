@@ -18,13 +18,7 @@ export function ApplicationForm() {
   const { errors, handleSubmit, register, setSchema } = useFormContext();
 
   useEffect(() => {
-    let isActive = true;
-    if (isActive) {
-      setSchema(applicationFormSchema);
-    }
-    return () => {
-      isActive = false;
-    };
+    setSchema(applicationFormSchema);
   }, []);
 
   const history = useHistory();
