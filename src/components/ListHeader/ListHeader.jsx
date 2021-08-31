@@ -10,8 +10,13 @@ const TH = ({ title, isNumeric, display }) => (
 
 export function ListHeader() {
   return (
-    <Thead position="sticky" top="0" backgroundColor="white">
-      <Tr>
+    <Thead
+      position="sticky"
+      top="0"
+      backgroundColor="white"
+      data-testid="list-header"
+    >
+      <Tr data-testid="list-header-row">
         <TH title="Apply by" />
         <TH title="Subject" display={{ base: 'none', lg: 'table-cell' }} />
         <TH title="From" display={{ base: 'none', '2sm': 'table-cell' }} />

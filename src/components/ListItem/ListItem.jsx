@@ -14,7 +14,7 @@ export function ListItem({ form }) {
 
   return (
     <>
-      <Tr>
+      <Tr data-testid="list-item">
         <Td>
           <Flex alignItems="center">
             <Image
@@ -41,6 +41,7 @@ export function ListItem({ form }) {
 
         <Td>
           <Center
+            data-testid="list-edit"
             cursor="pointer"
             onClick={() => {
               history.push({

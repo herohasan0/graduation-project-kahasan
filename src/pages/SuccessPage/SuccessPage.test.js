@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { render } from '@testing-library/react';
 import {
@@ -6,19 +7,26 @@ import {
   ALERTIDMESSAGE,
   WARNINGMESSAGE,
 } from 'config/languages/en';
-import { AlertContainer } from './AlertContainer';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import { SuccessPage } from './SuccessPage';
+
+let history;
+beforeAll(() => {
+  history = createMemoryHistory();
+  history.push({
+    state: {
+      dataid: 'Test ID',
+    },
+  });
+});
 
 let GetByText;
 beforeEach(() => {
   GetByText = render(
-    <AlertContainer
-      STATUS="success"
-      id="Test ID"
-      ALERTTITLE={SUBMITTEDALERTTITLE}
-      ALERTDESCRIPTION={SUBMITTEDALERTDESCRIPTION}
-      ALERTIDMESSAGE={ALERTIDMESSAGE}
-      NOTICEMESSAGE={WARNINGMESSAGE}
-    />
+    <Router history={history}>
+      <SuccessPage />
+    </Router>
   ).getByText;
 });
 
@@ -34,7 +42,7 @@ test('Component should render SUBMITTEDALERTDESCRIPTION.', () => {
   GetByText(SUBMITTEDALERTDESCRIPTION);
 });
 
-test('Component should render ALERTIDMESSAGE.', () => {
+test('Component should render ALERTIDMESSAGE and test id from history state.', () => {
   GetByText(`${ALERTIDMESSAGE}Test ID`);
 });
 
